@@ -1,0 +1,23 @@
+import { Callout } from 'nextra-theme-docs';
+
+# Create meteor application
+
+`create-meteor-app` is a framework to help you create a meteor app, register it to the dapp table and
+define the data models you want to use in your app. We also provide a React demo(`/src/App.tsx`) and React Hooks(`/src/hooks/`)
+SDK within this framework as an example to show how to build a web3 social app upon Meteor. You can use this demo
+as a reference to build your own app.
+
+## Requirements
+
+- [Git](https://git-scm.com/)
+- [nodejs](https://nodejs.org/en/) >= 16
+- [pnpm](https://pnpm.io/) >= 6
+  install pnpm
+  ```sh
+  npm install -g pnpm
+  ```
+- [Meteor Wallet](https://chrome.google.com/webstore/detail/meteor/kcigpjcafekokoclamfendmaapcljead) - the wallet extension needs to be installed in your browser.
+
+Meanwhile, If you want to use other frameworks like `next.js` or `vue.js`,
+you can use this tool to deploy your customized data models and create your app first and then get the model ids.
+After that you can install [`meteor-connector`](/sdk) in your project and use the data models you defined in `models` folder and the `stream_id` of each model to access the data resources and pass in the app name in functions like `createCapability` and `checkCapability`.

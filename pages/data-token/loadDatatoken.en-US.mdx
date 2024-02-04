@@ -1,0 +1,48 @@
+# loadDatatoken
+
+Get the detailed info of a data token by its id(Data Token id is the contract address of the data token).
+
+## Usage
+
+```js
+await connector.runOS({
+  method: SYSTEM_CALL.loadDatatoken,
+  params: datatokenId,
+});
+```
+
+## Parameters
+
+- `datatokenId`: `string` - data token id.
+
+## Returns
+
+Data token info.
+
+Example:
+
+```json
+{
+  "address": "0x6293BA7114867Ee79751d36376B969168DFD01d2",
+  "collect_info": {
+    "collect_nft_address": "0x6293BA7114867Ee79751d36376B969168DFD01d2",
+    "sold_list": [
+      {
+        "owner": "0xb4D93398f6F3FB5EE4436D1aE93b32d65693a799",
+        "token_id": "0"
+      }
+    ],
+    "sold_num": "1",
+    "total": "100",
+    "price": {
+      "amount": "0.0001",
+      "currency": "WMATIC",
+      "currency_addr": "0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889"
+    }
+  },
+  "content_uri": "ipfs://bafkreihmexxlqm7fbhwcp6unahjr25hs465x7c4a6ugljx6gmvp2fl4joy",
+  "owner": "0xb4D93398f6F3FB5EE4436D1aE93b32d65693a799",
+  "source": "0x6431eBEfE13E87bde75585C6fd1ea5596161732f",
+  "created_at": "2023-11-02 14:27:21.915329 +0800 CST"
+}
+```

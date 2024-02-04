@@ -1,0 +1,123 @@
+# moveFiles
+
+Move specified files to the target folder
+
+## Usage
+
+```js
+await connector.runOS({
+  method: SYSTEM_CALL.moveFiles,
+  params: {
+    targetFolderId: folderId,
+    fileIds: [actionFileId || indexFileId],
+  },
+});
+```
+
+## Parameters
+
+- `targetFolderId`: `string` - destination folder id
+- `fileIds`: `Array<string>` - Id of files to move
+
+## Returns
+
+```js
+{
+  sourceFolders: StructuredFolderRecord;
+  targetFolder: StructuredFolder;
+  movedFiles: MirrorFileRecord;
+  allFolders: StructuredFolderRecord;
+}
+```
+
+Example:
+
+```json
+{
+  "movedFiles": {
+    "kjzl6kcym7w8yb7bcl3rhixkz86s6qyv3fd4xnhi01c0c0013e1a82t6v6cuy4i": {
+      "content": {
+        "text": "hello",
+        "images": [
+          "https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link"
+        ],
+        "videos": [],
+        "createdAt": "2023-08-31T07:50:08.876Z",
+        "encrypted": "{\"text\":false,\"images\":false,\"videos\":false}",
+        "updatedAt": "2023-08-31T07:50:08.876Z",
+        "appVersion": "0.0.1"
+      },
+      "indexFileId": "kjzl6kcym7w8yb7bcl3rhixkz86s6qyv3fd4xnhi01c0c0013e1a82t6v6cuy4i",
+      "controller": "did:pkh:eip155:1:0x71888b7e2fE1163E5158Bc9D496758b6A4729BA1",
+      "comment": {
+        "mirrorName": "post",
+        "note": "",
+        "tags": []
+      },
+      "fileType": 0,
+      "contentId": "kjzl6kcym7w8y6rl4bpzuju74drtdf6ap58t4h3u1m6rdgrw9hywqhkqx4jkxmv",
+      "createdAt": "2023-08-31T07:50:10.441Z",
+      "updatedAt": "2023-08-31T07:50:10.441Z",
+      "appVersion": "0.2.0",
+      "contentType": "kjzl6hvfrbw6catndj34fzm0au0qu8dznn6wtrrdmd4va7052ffiypywqd8fjg9"
+    }
+  },
+  "sourceFolders": {
+    "kjzl6kcym7w8y5yv41qx39khoqiqcqxi3gmzrdumqst3rzkvpl4d0p3wcxjmikv": {
+      "options": {
+        "encryptedSymmetricKey": "7d38f99a971149aa59daf6c1666f2ce3101f1f02adc26d4cd1d3f1ebea1cceb019a608df29254bf4433ae685107c5f0d43e904142d381b7b1c19cde540c700a98c9f174bd9278b3a7090fb1720e36c9b68eb119e24908d3e22b497bfec937897009672d9bcb33167709ad6ec31ac0875c8f7916ff59f9da9c2b6c57096a3cc6800000000000000204c5273526459d9dfa50eeca3ef464c6d7adcfec907f54490479c6fb6a63843c48e2d7c7bfee4fcc524988db3b2385f8b",
+        "decryptionConditions": "W3siY29udHJhY3RBZGRyZXNzIjoiIiwic3RhbmRhcmRDb250cmFjdFR5cGUiOiIiLCJjaGFpbiI6ImV0aGVyZXVtIiwibWV0aG9kIjoiIiwicGFyYW1ldGVycyI6WyI6dXNlckFkZHJlc3MiXSwicmV0dXJuVmFsdWVUZXN0Ijp7ImNvbXBhcmF0b3IiOiI9IiwidmFsdWUiOiIweDcxODg4YjdlMmZFMTE2M0U1MTU4QmM5RDQ5Njc1OGI2QTQ3MjlCQTEifX0seyJvcGVyYXRvciI6ImFuZCJ9LHsiY29udHJhY3RBZGRyZXNzIjoiIiwic3RhbmRhcmRDb250cmFjdFR5cGUiOiJTSVdFIiwiY2hhaW4iOiJldGhlcmV1bSIsIm1ldGhvZCI6IiIsInBhcmFtZXRlcnMiOlsiOnJlc291cmNlcyJdLCJyZXR1cm5WYWx1ZVRlc3QiOnsiY29tcGFyYXRvciI6ImNvbnRhaW5zIiwidmFsdWUiOiJjZXJhbWljOi8vKj9tb2RlbD1ranpsNmh2ZnJidzZjN3Rhd2xhZ2QxMXF4b3QzNTRnbWhxdXdlMG1mbDRzZ2d2ajcwMmo2cmdsdmpzbm9wcjMifX0seyJvcGVyYXRvciI6ImFuZCJ9LHsiY29udHJhY3RBZGRyZXNzIjoiIiwic3RhbmRhcmRDb250cmFjdFR5cGUiOiJTSVdFIiwiY2hhaW4iOiJldGhlcmV1bSIsIm1ldGhvZCI6IiIsInBhcmFtZXRlcnMiOlsiOnJlc291cmNlcyJdLCJyZXR1cm5WYWx1ZVRlc3QiOnsiY29tcGFyYXRvciI6ImNvbnRhaW5zIiwidmFsdWUiOiJjZXJhbWljOi8vKj9tb2RlbD1ranpsNmh2ZnJidzZjOTY4cnY0eG1ycGc2NWw4NGJnNjFvM2tyN2pqaXYwcHZpbHNjdmp4NGF3ajBvbzNzMDQifX0seyJvcGVyYXRvciI6ImFuZCJ9LHsiY29udHJhY3RBZGRyZXNzIjoiIiwic3RhbmRhcmRDb250cmFjdFR5cGUiOiJTSVdFIiwiY2hhaW4iOiJldGhlcmV1bSIsIm1ldGhvZCI6IiIsInBhcmFtZXRlcnMiOlsiOnJlc291cmNlcyJdLCJyZXR1cm5WYWx1ZVRlc3QiOnsiY29tcGFyYXRvciI6ImNvbnRhaW5zIiwidmFsdWUiOiJjZXJhbWljOi8vKj9tb2RlbD1ranpsNmh2ZnJidzZjOWtmaHA3Y2xsc3AxdzVpOG83b2F0d2R1NWVkdzF3ZXZldTh1bzFwZnFyMXF2MjdudTcifX1d",
+        "encrypted": "ICAMPOhU0-bln-b8nR7KtOjH-fnrHlwZY_bMzc-LAOQ5nLiVUxA1MrOvBT1vnM7S-fZD3L6wz0fZy2-lKX0871lYGg1t-KnxvjfdQyQALbw",
+        "folderName": "Main",
+        "folderDescription": ""
+      },
+      "appId": "319e6aa6-916d-46fc-a7bf-4c4b0cb04919",
+      "model": [
+        "kjzl6hvfrbw6c7tawlagd11qxot354gmhquwe0mfl4sggvj702j6rglvjsnopr3",
+        "kjzl6hvfrbw6c968rv4xmrpg65l84bg61o3kr7jjiv0pvilscvjx4awj0oo3s04"
+      ],
+      "folderType": 1,
+      "createdAt": "2023-08-30T10:43:00.343Z",
+      "updatedAt": "2023-08-31T07:53:23.998Z",
+      "folderId": "kjzl6kcym7w8y5yv41qx39khoqiqcqxi3gmzrdumqst3rzkvpl4d0p3wcxjmikv",
+      "contentFolderIds": [
+        "kjzl6kcym7w8y5re7otlz9ersbeyd583d425zso279sasibantx5519pxbzdh3w"
+      ],
+      "controller": "did:pkh:eip155:1:0x71888b7e2fE1163E5158Bc9D496758b6A4729BA1",
+      "mirrors": {},
+      "mirrorsLocked": false
+    }
+  },
+  "targetFolder": {
+    "options": {
+      "encryptedSymmetricKey": "129bcf8eacc6e100a29bfe17be7b2bf0640e498057b80fd7112a526a4ba302edad9223c127c505451585e93391fa860a256792e7fe932a993bfc2ab6076b9a96428084cb88b57d24f9c7e4b432c95e92024130f73b3a5954212f156efcbbad914368a400d0257a94519fa32078ddd79092e6ff9682e104c5536238bbadc87e0f0000000000000020792be5569d8b47a667284f5579e580b09d9bae094d319d65e2e49ec8245bc3119123139908528d38d26db72ae1066696",
+      "decryptionConditions": "W3siY29udHJhY3RBZGRyZXNzIjoiIiwic3RhbmRhcmRDb250cmFjdFR5cGUiOiIiLCJjaGFpbiI6ImV0aGVyZXVtIiwibWV0aG9kIjoiIiwicGFyYW1ldGVycyI6WyI6dXNlckFkZHJlc3MiXSwicmV0dXJuVmFsdWVUZXN0Ijp7ImNvbXBhcmF0b3IiOiI9IiwidmFsdWUiOiIweDcxODg4YjdlMmZFMTE2M0U1MTU4QmM5RDQ5Njc1OGI2QTQ3MjlCQTEifX0seyJvcGVyYXRvciI6ImFuZCJ9LHsiY29udHJhY3RBZGRyZXNzIjoiIiwic3RhbmRhcmRDb250cmFjdFR5cGUiOiJTSVdFIiwiY2hhaW4iOiJldGhlcmV1bSIsIm1ldGhvZCI6IiIsInBhcmFtZXRlcnMiOlsiOnJlc291cmNlcyJdLCJyZXR1cm5WYWx1ZVRlc3QiOnsiY29tcGFyYXRvciI6ImNvbnRhaW5zIiwidmFsdWUiOiJjZXJhbWljOi8vKj9tb2RlbD1ranpsNmh2ZnJidzZjN3Rhd2xhZ2QxMXF4b3QzNTRnbWhxdXdlMG1mbDRzZ2d2ajcwMmo2cmdsdmpzbm9wcjMifX0seyJvcGVyYXRvciI6ImFuZCJ9LHsiY29udHJhY3RBZGRyZXNzIjoiIiwic3RhbmRhcmRDb250cmFjdFR5cGUiOiJTSVdFIiwiY2hhaW4iOiJldGhlcmV1bSIsIm1ldGhvZCI6IiIsInBhcmFtZXRlcnMiOlsiOnJlc291cmNlcyJdLCJyZXR1cm5WYWx1ZVRlc3QiOnsiY29tcGFyYXRvciI6ImNvbnRhaW5zIiwidmFsdWUiOiJjZXJhbWljOi8vKj9tb2RlbD1ranpsNmh2ZnJidzZjOTY4cnY0eG1ycGc2NWw4NGJnNjFvM2tyN2pqaXYwcHZpbHNjdmp4NGF3ajBvbzNzMDQifX0seyJvcGVyYXRvciI6ImFuZCJ9LHsiY29udHJhY3RBZGRyZXNzIjoiIiwic3RhbmRhcmRDb250cmFjdFR5cGUiOiJTSVdFIiwiY2hhaW4iOiJldGhlcmV1bSIsIm1ldGhvZCI6IiIsInBhcmFtZXRlcnMiOlsiOnJlc291cmNlcyJdLCJyZXR1cm5WYWx1ZVRlc3QiOnsiY29tcGFyYXRvciI6ImNvbnRhaW5zIiwidmFsdWUiOiJjZXJhbWljOi8vKj9tb2RlbD1ranpsNmh2ZnJidzZjOWtmaHA3Y2xsc3AxdzVpOG83b2F0d2R1NWVkdzF3ZXZldTh1bzFwZnFyMXF2MjdudTcifX1d",
+      "encrypted": "7dsW9j70DdKvn_Xfhj3UoZ8482ZVl-Eu8J9F7kd-p55RwjAwWzD1CJAawLtO-roKg8xu1WdJQJLcXAITWkGV9qCkR-zSNFS377crmpKwpMs",
+      "folderName": "Private",
+      "folderDescription": ""
+    },
+    "appId": "319e6aa6-916d-46fc-a7bf-4c4b0cb04919",
+    "model": [
+      "kjzl6hvfrbw6c7tawlagd11qxot354gmhquwe0mfl4sggvj702j6rglvjsnopr3",
+      "kjzl6hvfrbw6c968rv4xmrpg65l84bg61o3kr7jjiv0pvilscvjx4awj0oo3s04"
+    ],
+    "folderType": 1,
+    "createdAt": "2023-08-31T07:29:15.995Z",
+    "updatedAt": "2023-08-31T07:53:23.998Z",
+    "folderId": "kjzl6kcym7w8yayoc1269iu3nkq437gv8u7ud7irzdxx0wkht2e4sq31umh2d7l",
+    "contentFolderIds": [
+      "kjzl6kcym7w8y8xxq0ecpwtomujgp3clxjoeibbyzju8pqdr2lp2xg5uiudtw57"
+    ],
+    "controller": "did:pkh:eip155:1:0x71888b7e2fE1163E5158Bc9D496758b6A4729BA1",
+    "mirrors": {
+      "kjzl6kcym7w8yb7bcl3rhixkz86s6qyv3fd4xnhi01c0c0013e1a82t6v6cuy4i": {
+        ...
+      }
+    },
+    "mirrorsLocked": false
+  },
+  "allFolders": {
+    ...
+  }
+}
+```

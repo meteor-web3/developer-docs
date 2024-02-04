@@ -1,0 +1,72 @@
+# deleteFolder
+
+Mark a folder as `deleted`.
+
+## Usage
+
+```js
+await connector.runOS({
+  method: SYSTEM_CALL.deleteFolder,
+  params: {
+    folderId,
+  },
+});
+```
+
+## Parameters
+
+```js
+{
+    folderId: string;
+    syncImmediately?: boolean;
+}
+```
+
+- `folderId` - The folder id.
+- OPTIONAL - `syncImmediately` - Whether to sync the deletion to data network immediately or wait for os schedule. Default is `false`.
+
+## Returns
+
+```js
+{
+  currentFolder: StructuredFolder;
+  allFolders: StructuredFolders;
+}
+```
+
+Example:
+
+```json
+{
+  "currentFolder": {
+    "options": {
+      "encryptedSymmetricKey": "6af648290007d60694ab2489273ee004ff0bce6259bdc2596f8d462e588d38339864c7b53dc31cf37fdb96ca12d2360f9239b73dc32ec0dbaf740199a4d54075ac6c0c87b338a597cda36afebfdbf7a334241afcd971386a9123937336227fb1e64ddc440389d106f6fb3c9d90b34ba602e1887aa4afc36ad7c0ce1e19ba3e640000000000000020aad6aa79cf55e586cc7a63a880c49d32e968894c15d86a028a70106d03c281e1459b3c7b30e2e879e00d939cdf5c5f8c",
+      "decryptionConditions": "W3siY29udHJhY3RBZGRyZXNzIjoiIiwic3RhbmRhcmRDb250cmFjdFR5cGUiOiIiLCJjaGFpbiI6ImxpdHByb3RvY29sIiwibWV0aG9kIjoiIiwicGFyYW1ldGVycyI6WyI6dXNlckFkZHJlc3MiXSwicmV0dXJuVmFsdWVUZXN0Ijp7ImNvbXBhcmF0b3IiOiI9IiwidmFsdWUiOiIweGI0RDkzMzk4ZjZGM0ZCNUVFNDQzNkQxYUU5M2IzMmQ2NTY5M2E3OTkifX0seyJvcGVyYXRvciI6ImFuZCJ9LHsiY29udHJhY3RBZGRyZXNzIjoiIiwic3RhbmRhcmRDb250cmFjdFR5cGUiOiJTSVdFIiwiY2hhaW4iOiJsaXRwcm90b2NvbCIsIm1ldGhvZCI6IiIsInBhcmFtZXRlcnMiOlsiOnJlc291cmNlcyJdLCJyZXR1cm5WYWx1ZVRlc3QiOnsiY29tcGFyYXRvciI6ImNvbnRhaW5zIiwidmFsdWUiOiJjZXJhbWljOi8vKj9tb2RlbD1ranpsNmh2ZnJidzZjOWs0dTdmanMzZ3VhYXNmMnJ0N3M3aGRvMjYzeG84NGlyYWI3cG5lNW1mandzeHFjOHoifX0seyJvcGVyYXRvciI6ImFuZCJ9LHsiY29udHJhY3RBZGRyZXNzIjoiIiwic3RhbmRhcmRDb250cmFjdFR5cGUiOiJTSVdFIiwiY2hhaW4iOiJsaXRwcm90b2NvbCIsIm1ldGhvZCI6IiIsInBhcmFtZXRlcnMiOlsiOnJlc291cmNlcyJdLCJyZXR1cm5WYWx1ZVRlc3QiOnsiY29tcGFyYXRvciI6ImNvbnRhaW5zIiwidmFsdWUiOiJjZXJhbWljOi8vKj9tb2RlbD1ranpsNmh2ZnJidzZjYTRyN2NkaTdhZGJtbHU0ZHR1YXUzd3F0bmR6eDlvd3Bwb2x4aWs3aHhrOGZ3Y3M0angifX0seyJvcGVyYXRvciI6ImFuZCJ9LHsiY29udHJhY3RBZGRyZXNzIjoiIiwic3RhbmRhcmRDb250cmFjdFR5cGUiOiJTSVdFIiwiY2hhaW4iOiJsaXRwcm90b2NvbCIsIm1ldGhvZCI6IiIsInBhcmFtZXRlcnMiOlsiOnJlc291cmNlcyJdLCJyZXR1cm5WYWx1ZVRlc3QiOnsiY29tcGFyYXRvciI6ImNvbnRhaW5zIiwidmFsdWUiOiJjZXJhbWljOi8vKj9tb2RlbD1ranpsNmh2ZnJidzZjYWdtNTBnbTRpam9lbmtwYnhrajQ1ZzlyYjQxeHFiMXowaHRpeHhzMGNkNzR0cndyenIifX1d",
+      "encrypted": "3FdrnDaJ7O-p9M4gvb-nqDX-Ir_gOcClKn1VMGGuaUyOp0r8qIy6EZWH910yVxjioOdIpz_5IYEtD54mJmS--mYs0plk8S7nF6RAGR2o7Jg",
+      "folderName": "Private",
+      "folderDescription": ""
+    },
+    "app": "fxy001",
+    "model": [
+      "kjzl6hvfrbw6c9k4u7fjs3guaasf2rt7s7hdo263xo84irab7pne5mfjwsxqc8z",
+      "kjzl6hvfrbw6ca4r7cdi7adbmlu4dtuau3wqtndzx9owppolxik7hxk8fwcs4jx"
+    ],
+    "folderType": 1,
+    "createdAt": "2023-06-09T10:54:28.435Z",
+    "updatedAt": "2023-06-09T10:54:28.435Z",
+    "folderId": "kjzl6kcym7w8y71x94bqoj8no0my3m8ks210lpz9fva2aobs7a5okmecd293fw0",
+    "contentFolderIds": [
+      "kjzl6kcym7w8y7cuix19jct0v9vk7b65l9eta6rcdv3g0zyhaerk5ct5ytuixdr"
+    ],
+    "mirrors": {},
+    "mirrorsLocked": false,
+    "deleted": true
+  },
+  "allFolders": {
+    "kjzl6kcym7w8y6ywzcsmzjx6vxmw5f28l87v8w9bvgkf1k20nrnw57xfddqb52q": {
+      ...
+    },
+    ...
+  }
+}
+```

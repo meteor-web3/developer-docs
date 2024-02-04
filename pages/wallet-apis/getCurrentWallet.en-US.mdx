@@ -1,0 +1,48 @@
+# getCurrentWallet
+
+Get the current wallet connected.
+
+## Usage
+
+```javascript
+await connector.getCurrentWallet();
+```
+
+## Parameters
+
+void
+
+## Returns
+
+```js
+Promise<{
+    address: string;
+    chain: Chain;
+    wallet: WALLET;
+}>
+```
+
+```js
+interface Chain {
+    chainId: number;
+    chainName: string;
+}
+
+enum WALLET {
+    METAMASK = "MetaMask",
+    WALLETCONNECT = "WalletConnect",
+    COINBASE = "Coinbase",
+    PARTICLE = "Particle",
+    EXTERNAL_WALLET = "ExternalWallet"
+}
+```
+
+Example:
+
+```json
+{
+  "wallet": "MetaMask",
+  "address": "0xb4D93398f6F3FB5EE4436D1aE93b32d65693a799",
+  "chain": { "chainId": 137, "chainName": "polygon" }
+}
+```

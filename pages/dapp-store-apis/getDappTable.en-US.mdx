@@ -1,0 +1,58 @@
+# getDappTable
+
+Function for getting the list of registered meteor apps.
+
+## Usage
+
+```js
+await connector.getDAppTable();
+```
+
+## Parameters
+
+void
+
+## Returns
+
+`Promise<Dapp[]>`
+
+```json
+[
+  {
+    "id": "319e6aa6-916d-46fc-a7bf-4c4b0cb04919",
+    "createdAt": 1691665818,
+    "updatedAt": 1691665818,
+    "deletedAt": null,
+    "name": "meteor_app_base_example",
+    "logo": "https://bafybeifozdhcbbfydy2rs6vbkbbtj3wc4vjlz5zg2cnqhb2g4rm2o5ldna.ipfs.w3s.link/meteor.svg",
+    "website": [],
+    "defaultFolderName": "Main",
+    "description": "This is meteor app example.",
+    "models": [
+        {
+            "modelName": "post",
+            "internal": false,
+            "streams": [
+                {
+                    "modelId": "kjzl6hvfrbw6catndj34fzm0au0qu8dznn6wtrrdmd4va7052ffiypywqd8fjg9",
+                    "createdAt": 1691665818,
+                    "schema": "type post @createModel(accountRelation: LIST, description: \"Meteor: 319e6aa6-916d-46fc-a7bf-4c4b0cb04919 | post\") {\n  author: DID! @documentAccount\n  version: CommitID! @documentVersion\n  appVersion: String! @string(maxLength: 100)\n  text: String @string(maxLength: 300000000)\n  images: [String] @list(maxLength: 10000000) @string(maxLength: 2000000)\n  videos: [String] @list(maxLength: 10000000) @string(maxLength: 2000000)\n  options: String @string(maxLength: 300000000)\n  createdAt: DateTime!\n  updatedAt: DateTime!\n  encrypted: String @string(maxLength: 300000000)\n}",
+                    "isPublicDomain": false,
+                    "encryptable": [
+                        "text",
+                        "images",
+                        "videos"
+                    ],
+                    "version": 0,
+                    "latest": true
+                }
+            ]
+        },
+        ...
+    ],
+    "address": "0x65AB67C2d00cF7CfE8FE1E8A6C47535dDB9260eE",
+    "ceramic": "https://dataverseceramicdaemon.com"
+  },
+  ...
+]
+```

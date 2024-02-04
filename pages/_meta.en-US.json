@@ -1,0 +1,167 @@
+{
+  "index": {
+    "title": "Home",
+    "type": "page"
+  },
+  "overview": {
+    "title": "Introduction"
+  },
+  "-- Products": {
+    "type": "separator",
+    "title": "Products"
+  },
+  "meteor-cloud": {
+    "title": "Meteor Cloud"
+  },
+  "meteor-wallet": {
+    "title": "Meteor Wallet"
+  },
+  "dapp-store": {
+    "title": "DApp Store"
+  },
+  "-- Build": {
+    "type": "separator",
+    "title": "Build"
+  },
+  "key-concepts": {
+    "title": "Key Concepts"
+  },
+  "cli-and-tools": {
+    "title": "Create Meteor App"
+  },
+  "sdk": {
+    "title": "SDKs",
+    "type": "hidden"
+  },
+  "meteor-connector": {
+    "title": "Meteor Connector"
+  },
+  "wallet-adaptor": {
+    "title": "Wallet Adaptor"
+  },
+  "dweb-toolkits": {
+    "title": "DWeb Toolkits"
+  },
+  "code-examples": {
+    "title": "Code Examples"
+  },
+  "why": {
+    "title": "Why Meteor?",
+    "type": "hidden"
+  },
+  "-- API": {
+    "type": "separator",
+    "title": "API"
+  },
+  "wallet-apis": {
+    "title": "Wallet APIs"
+  },
+  "dapp-store-apis": {
+    "title": "DApp Store APIs"
+  },
+  "-- System-Calls": {
+    "type": "separator",
+    "title": "System Calls"
+  },
+  "capability": {
+    "title": "Capability"
+  },
+  "folder": {
+    "title": "Folder"
+  },
+  "file": {
+    "title": "File"
+  },
+  "data-token": {
+    "title": "Data Token"
+  },
+  "-- Appendix": {
+    "type": "separator",
+    "title": "Appendix"
+  },
+  "how-it-works": {
+    "title": "How it works?"
+  },
+  "support": {
+    "title": "Support"
+  },
+  "Participate": {
+    "title": "Participate",
+    "type": "menu",
+    "items": {
+      "dc": {
+        "title": "Discord",
+        "href": "https://discord.gg/BnCek4e6ny"
+      },
+      "twitter": {
+        "title": "Twitter",
+        "href": "https://twitter.com/Meteor"
+      }
+    }
+  },
+  "Hackathon": {
+    "title": "Build",
+    "type": "menu",
+    "items": {
+      "Rebuild Ownership 2.0": {
+        "title": "Rebuild Ownership 2.0",
+        "href": "https://rebuild.dataverse.city/"
+      }
+    }
+  },
+  "guides": {
+    "title": "Guides",
+    "type": "page",
+    "display": "hidden"
+  },
+  "reference": {
+    "title": "Reference",
+    "type": "page",
+    "display": "hidden"
+  },
+  "API & SDKs": {
+    "title": "API & SDKs",
+    "type": "menu",
+    "items": {
+      "api": {
+        "title": "API Reference",
+        "href": "/reference/api"
+      },
+      "livepeer-js": {
+        "title": "Livepeer.js",
+        "href": "/reference/livepeer-js"
+      },
+      "subgraph": {
+        "title": "Subgraph ↗",
+        "href": "https://thegraph.com/hosted-service/subgraph/livepeer/arbitrum-one",
+        "newWindow": true
+      }
+    },
+    "display": "hidden"
+  },
+  "tutorials": {
+    "title": "Tutorials",
+    "type": "page",
+    "display": "hidden"
+  },
+  "studio_link": {
+    "title": "Studio ↗",
+    "href": "https://livepeer.studio/dashboard",
+    "type": "page",
+    "newWindow": true,
+    "display": "hidden"
+  },
+  "404": {
+    "type": "page",
+    "theme": {
+      "timestamp": false
+    }
+  },
+  "500": {
+    "type": "page",
+    "theme": {
+      "timestamp": false,
+      "layout": "full"
+    }
+  }
+}

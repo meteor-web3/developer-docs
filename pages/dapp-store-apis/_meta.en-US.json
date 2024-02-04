@@ -1,0 +1,14 @@
+{
+  "getDappTable": {
+    "title": "getDappTable",
+    "icon": "",
+    "description": "",
+    "href": "/dapp-store-apis/getDappTable"
+  },
+  "getDappInfo": {
+    "title": "getDappInfo",
+    "icon": "",
+    "description": "",
+    "href": "/dapp-store-apis/getDappInfo"
+  }
+}

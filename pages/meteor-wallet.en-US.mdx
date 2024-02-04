@@ -1,0 +1,84 @@
+import { Callout } from 'nextra-theme-docs';
+
+# Meteor Wallet
+
+[Meteor Wallet](https://chrome.google.com/webstore/detail/meteor/kcigpjcafekokoclamfendmaapcljead) is a web3 crypto wallet that manages both your finances and personal data.
+
+It is a fully-featured cryptocurrency wallet with additional functionality. Beyond sending transactions, NFTs, interacting with DeFi, etc. you can also create, visualize, and manage your DATA in a decentralized manner.
+
+The wallet acts as a gateway to decentralized data applications (dApps). It prevents malicious applications from stealing your personal data without your consent.
+
+The wallet is designed to protect user signatures and resources authenticated via Sign-In with Ethereum (SIWE).
+
+<img
+  src="/images/introduction/data-wallet.png"
+  width="36%"
+  className="mx-auto my-2.5"
+/>
+
+## Compatible with other wallets
+
+Meteor Wallet introduces a new `WalletsInWallet` architecture for cryptocurrency wallets. This enables users to plug in and connect with Meteor using any wallet they already have installed.
+It eases the evolution of crypto wallets from just token management to managing both money and personal data.
+
+Meteor Wallet works as an aggregator for normal cryptocurrency wallets like MetaMask, Coinbase, etc. It provides a complete portfolio view and allows you to trade across all assets and connect to any decentralized application with one wallet.
+
+Meanwhile, Meteor Wallet brings new data functionality to all existing wallets. By plugging into Meteor Wallet, your current wallet gains abilities like decentralized data storage, data monetization, data unions, and more.
+
+The `WalletsInWallet` architecture creates a seamless experience for users. They can continue using their preferred wallet while unlocking the full potential of web3 data management offered by Meteor.
+
+We will also further optimise the ease of use and functionality of the wallet by integrating Account Abstraction in the future.
+
+<img
+  src="/images/introduction/wallets.png"
+  width="75%"
+  className="mx-auto my-2.5"
+/>
+
+## Secure resources
+
+Meteor Wallet implements safe access controls for resources based on Ethereum Improvement Proposals EIP-4361 (Sign-In with Ethereum) and EIP-5573 (ReCaps).
+
+Sign-In with Ethereum (SIWE) defines how users can create decentralized identities and authenticate with off-chain applications.
+
+ReCaps extends Sign-In with Ethereum's functionality, enabling users to grant informed consent to applications to act on their behalf after signing in.
+
+By combining these two standards, Meteor Wallet enables users to selectively delegate permissions for applications to handle some of their resources.
+This is done by signing messages that inform the user exactly what access they are granting.
+
+<div className="flex">
+  <img src="/images/introduction/siwe1.png" width="40%" className="mx-auto" />
+  <img src="/images/introduction/siwe2.png" width="40%" className="mx-auto" />
+</div>
+
+Signed messages (signatures) serve as credentials that grant access to resources.
+The security of the signature is equivalent to the security of personal data.
+If a user's signatures leak or are compromised, it poses a risk of their web3 resources being stolen or tampered with.
+For example, if an unauthorized party gains access to a user's signatures, they could steal, edit or delete a user's personal data.
+
+Meteor Wallet mitigates this risk by storing & protecting user's signatures locally like How MetaMask protects user private key,
+and selectively denying access to view or export signatures.
+
+We create Meteor Wallet in purpose to shape a standard for maintaining signature security in a decentralized manner.
+We are committed to bringing this security layer to all traditional crypto wallets, making data security a necessary part of wallet services.
+Thus users stay in control of their resources while being able to safely leverage decentralized apps.
+
+<img
+  src="/images/introduction/comparision.png"
+  width="80%"
+  className="mx-auto my-2.5"
+/>
+
+## DApp authenticator
+
+To prevent malicious applications from disguising themselves and obtaining unauthorized access to a user's resources, Meteor Wallet also functions as an application authenticator.
+
+We maintain a decentralized application registry that provides triple assurance that any app a user connects with is trusted and authorized.
+This verification happens through:
+
+- The application's domain name - Meteor Wallet checks that the domain matches the registered name for that app.
+- The application's admin key - Each registered app has a unique admin key that Meteor verifies is valid and approved.
+- The user's signature - The user signs a message authorizing the specific app domain when first connecting to the app.
+
+Together, these three authentication mechanisms ensure users only connect to legitimate applications.
+Before granting any access permissions, Meteor Wallet rigorously validates both the user's approval and the application's registered identity.

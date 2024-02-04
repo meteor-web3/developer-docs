@@ -1,0 +1,85 @@
+# createFolder
+
+Create a public/private folder
+
+## Usage
+
+```js
+import { FolderType } from '@meteor-web3/connector';
+
+await connector.runOS({
+  method: SYSTEM_CALL.createFolder,
+  params: {
+    folderType: FolderType.Private,
+    folderName,
+  },
+});
+```
+
+## Parameters
+
+```js
+{
+    folderType: FolderType;
+    folderName: string;
+    folderDescription?: string;
+}
+```
+
+- `folderType`: `FolderType` - folder type
+  ```js
+  enum FolderType {
+      Public,
+      Private,
+      Datatoken
+  }
+  ```
+- `folderName`: `string` - folder name
+- OPTIONAL - `folderDescription`: `string` - folder description
+
+## Returns
+
+```js
+{
+  newFolder: StructuredFolder;
+  allFolders: StructuredFolders;
+}
+```
+
+Example:
+
+```json
+{
+  "newFolder": {
+    "model": [
+      "kjzl6hvfrbw6cagt694iim2wuecu7eumeds7qd0p6uzm8dnqsq69ll7kacm05gu",
+      "kjzl6hvfrbw6c7gu88g66z28n81lcpbg6hu2t8pu2pui0sfnpvsrhqn3kxh9xai"
+    ],
+    "fsVersion": "0.11",
+    "folderName": "Private",
+    "folderType": 0,
+    "createdAt": "2023-11-02T10:59:17.826Z",
+    "updatedAt": "2023-11-02T10:59:17.826Z",
+    "folderId": "kjzl6kcym7w8y7krvvy2tffzls1b2spp71a97smqca4j1wumoqkvx2qi3ygzff3",
+    "contentFolderIds": [
+      "kjzl6kcym7w8y5yblm17ig3nsehhglwwicp9a09iwllr32ljgzvfl80brb611ut"
+    ],
+    "accessControl": {
+      "encryptionProvider": {
+        "protocol": "Lit",
+        "encryptedSymmetricKey": "64bdc14a2622c5a9d250562d085e6a1c914104e76dfe204c4a9f4d64976fcc147a0662275ebd3ece7830fddb980852043906d5630d425fd8809dfa4b6da899de817ee3c31b38e454fc49ee075d59a48879c14ca9a7ab69932d769257f9419faf5789db3cab6e7dea6370fa7113fe26d7fd8d34ff555e19424629f1abbffaac4000000000000000206490ae96455ce7a1fbce24672c9f2ca362c2d4a4b39ead9fcc777a7133f59c027e5ace06f3f934f7fd025e0c78e160b2",
+        "decryptionConditions": [
+          ...
+        ],
+        "decryptionConditionsType": "AccessControlCondition"
+      }
+    },
+    "mirrorRecord": {},
+    "mirrorRecordLocked": false,
+    "options": {}
+  },
+  "allFolders": {
+    ...
+  }
+}
+```

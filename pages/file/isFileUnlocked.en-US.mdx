@@ -1,0 +1,22 @@
+import { Callout } from 'nextra-theme-docs';
+
+# isFileUnlocked
+
+Get if a file is unlocked or not.
+
+## Usage
+
+```js
+await connector.runOS({
+  method: SYSTEM_CALL.isFileUnlocked,
+  params: indexFileId,
+});
+```
+
+## Parameters
+
+- `indexFileId`: `string` - The index file id if you are unlocking a file
+
+## Returns
+
+boolean.

@@ -1,0 +1,38 @@
+import { Callout } from 'nextra-theme-docs';
+
+# loadActionFilesByFileId
+
+Give an indexFileId, load the actionFiles linked to it.
+
+## Usage
+
+```javascript
+await connector.runOS({
+  method: SYSTEM_CALL.loadActionFilesByFileId,
+  params: indexFileId,
+});
+```
+
+## Parameters
+
+- `indexFileId`: `string` - id of an indexFile
+
+## Returns
+
+`Promise<Record<string, MirrorFile>>` - a map of actionFileId to actionFile
+
+```json
+{
+    "kjzl6kcym7w8y4wgnb1lct0hfljgzo0q5xobswhiods9qmmlynxlzg5re0segcr": {
+        "controller": "did:pkh:eip155:1:0xb4D93398f6F3FB5EE4436D1aE93b32d65693a799",
+        "action": "eyJhY3Rpb25UeXBlIjoiTElLRSIsImNvbW1lbnQiOiJJIGxpa2UgaXQhIiwiaXNSZWxhdGlvbklkRW5jcnlwdGVkIjpmYWxzZSwiaXNDb21tZW50RW5jcnlwdGVkIjpmYWxzZX0",
+        "createdAt": "2023-12-11T07:19:58.757Z",
+        "fileName": "like",
+        "fileType": 0,
+        "fsVersion": "0.11",
+        "relationId": "kjzl6kcym7w8y9hhvh7z02l06prdmx111etel7af79s7ub7fhblv78ucymh0mca",
+        "updatedAt": "2023-12-11T07:19:58.757Z"
+    },
+    ...
+}
+```

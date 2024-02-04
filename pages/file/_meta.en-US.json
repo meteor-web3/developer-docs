@@ -1,0 +1,124 @@
+{
+  "createIndexFile": {
+    "title": "createIndexFile",
+    "icon": "",
+    "description": "",
+    "href": "/file/createIndexFile"
+  },
+  "updateIndexFile": {
+    "title": "updateIndexFile",
+    "icon": "",
+    "description": "",
+    "href": "/file/updateIndexFile"
+  },
+  "createActionFile": {
+    "title": "createActionFile",
+    "icon": "",
+    "description": "",
+    "href": "/file/createActionFile"
+  },
+  "updateActionFile": {
+    "title": "updateActionFile",
+    "icon": "",
+    "description": "",
+    "href": "/file/updateActionFile"
+  },
+  "createBareFile": {
+    "title": "createBareFile",
+    "icon": "",
+    "description": "",
+    "href": "/file/createBareFile"
+  },
+  "updateBareFile": {
+    "title": "updateBareFile",
+    "icon": "",
+    "description": "",
+    "href": "/file/updateBareFile"
+  },
+  "uploadFile": {
+    "title": "uploadFile",
+    "icon": "",
+    "description": "",
+    "type": "hidden",
+    "href": "/file/uploadFile"
+  },
+  "loadFile": {
+    "title": "loadFile",
+    "icon": "",
+    "description": "",
+    "href": "/file/loadFile"
+  },
+  "loadFilesBy": {
+    "title": "loadFilesBy",
+    "icon": "",
+    "description": "",
+    "href": "/file/loadFilesBy"
+  },
+  "loadBareFileContent": {
+    "title": "loadBareFileContent",
+    "icon": "",
+    "description": "",
+    "href": "/file/loadBareFileContent"
+  },
+  "loadActionFilesByFileId": {
+    "title": "loadActionFilesByFileId",
+    "icon": "",
+    "description": "",
+    "href": "/file/loadActionFilesByFileId"
+  },
+  "updateFileBaseInfo": {
+    "title": "updateFileBaseInfo",
+    "icon": "",
+    "description": "",
+    "type": "hidden",
+    "href": "/file/updateFileBaseInfo"
+  },
+  "moveFiles": {
+    "title": "moveFiles",
+    "icon": "",
+    "description": "",
+    "href": "/file/moveFiles"
+  },
+  "monetizeFile": {
+    "title": "monetizeFile",
+    "icon": "",
+    "description": "",
+    "href": "/file/monetizeFile"
+  },
+  "collectFile": {
+    "title": "collectFile",
+    "icon": "",
+    "description": "",
+    "href": "/file/collectFile"
+  },
+  "unlockFile": {
+    "title": "unlockFile",
+    "icon": "",
+    "description": "",
+    "href": "/file/unlockFile"
+  },
+  "isFileUnlocked": {
+    "title": "isFileUnlocked",
+    "icon": "",
+    "description": "",
+    "href": "/file/isFileUnlocked"
+  },
+  "loadCreatedDatatokenFiles": {
+    "title": "loadCreatedDatatokenFiles",
+    "icon": "",
+    "description": "",
+    "href": "/file/loadCreatedDatatokenFiles"
+  },
+  "loadCollectedDatatokenFiles": {
+    "title": "loadCollectedDatatokenFiles",
+    "icon": "",
+    "description": "",
+    "href": "/file/loadCollectedDatatokenFiles"
+  },
+  "removeFiles": {
+    "title": "removeFiles",
+    "icon": "",
+    "description": "",
+    "href": "/file/removeFiles"
+  }
+}

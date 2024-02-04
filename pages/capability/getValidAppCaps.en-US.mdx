@@ -1,0 +1,47 @@
+# getValidAppCaps
+
+Get the list of dApps and return whether it is authorized for each one.
+
+## Usage
+
+```js
+await connector.runOS({
+  method: SYSTEM_CALL.getValidAppCaps,
+});
+```
+
+## Parameters
+
+void
+
+## Returns
+
+List of dApps.
+
+Example:
+
+```js
+[
+  {
+    id: '00d21b01-5166-4e22-acc2-10fc2c6be6a8',
+    createdAt: 1689220101,
+    updatedAt: 1689220101,
+    deletedAt: null,
+    name: 'meteor_app_example',
+    logo: 'https://github.com/meteor-web3/runtime-connector/raw/main/logo.svg',
+    website: ['https://meteor.computer'],
+    defaultFolderName: 'Main',
+    description: 'This is meteor app example.',
+    models: [
+      ...
+    ],
+    address: '0x13a6D1fe418de7e5B03Fb4a15352DfeA3249eAA4',
+    ceramic: 'https://testnet.dataverseceramicdaemon.com',
+    streamsNumber: 0,
+    isIdentityValid: false,
+  },
+  ...
+];
+```
+
+If the app is authorized, `isIdentityValid` is true. Otherwise false.

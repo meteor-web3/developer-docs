@@ -1,0 +1,53 @@
+# loadFolderById
+
+Retrieve one folder by its ID.
+
+## Usage
+
+```js
+await connector.runOS({
+  method: SYSTEM_CALL.loadFolderById,
+  params: folderId,
+});
+```
+
+## Parameters
+
+- `folderId`: `string` - The ID of the folder to load.
+
+## Returns
+
+```
+StructuredFolders
+```
+
+Example:
+
+```json
+{
+  "options": {
+    "encryptedSymmetricKey": "129bcf8eacc6e100a29bfe17be7b2bf0640e498057b80fd7112a526a4ba302edad9223c127c505451585e93391fa860a256792e7fe932a993bfc2ab6076b9a96428084cb88b57d24f9c7e4b432c95e92024130f73b3a5954212f156efcbbad914368a400d0257a94519fa32078ddd79092e6ff9682e104c5536238bbadc87e0f0000000000000020792be5569d8b47a667284f5579e580b09d9bae094d319d65e2e49ec8245bc3119123139908528d38d26db72ae1066696",
+    "decryptionConditions": "W3siY29udHJhY3RBZGRyZXNzIjoiIiwic3RhbmRhcmRDb250cmFjdFR5cGUiOiIiLCJjaGFpbiI6ImV0aGVyZXVtIiwibWV0aG9kIjoiIiwicGFyYW1ldGVycyI6WyI6dXNlckFkZHJlc3MiXSwicmV0dXJuVmFsdWVUZXN0Ijp7ImNvbXBhcmF0b3IiOiI9IiwidmFsdWUiOiIweDcxODg4YjdlMmZFMTE2M0U1MTU4QmM5RDQ5Njc1OGI2QTQ3MjlCQTEifX0seyJvcGVyYXRvciI6ImFuZCJ9LHsiY29udHJhY3RBZGRyZXNzIjoiIiwic3RhbmRhcmRDb250cmFjdFR5cGUiOiJTSVdFIiwiY2hhaW4iOiJldGhlcmV1bSIsIm1ldGhvZCI6IiIsInBhcmFtZXRlcnMiOlsiOnJlc291cmNlcyJdLCJyZXR1cm5WYWx1ZVRlc3QiOnsiY29tcGFyYXRvciI6ImNvbnRhaW5zIiwidmFsdWUiOiJjZXJhbWljOi8vKj9tb2RlbD1ranpsNmh2ZnJidzZjN3Rhd2xhZ2QxMXF4b3QzNTRnbWhxdXdlMG1mbDRzZ2d2ajcwMmo2cmdsdmpzbm9wcjMifX0seyJvcGVyYXRvciI6ImFuZCJ9LHsiY29udHJhY3RBZGRyZXNzIjoiIiwic3RhbmRhcmRDb250cmFjdFR5cGUiOiJTSVdFIiwiY2hhaW4iOiJldGhlcmV1bSIsIm1ldGhvZCI6IiIsInBhcmFtZXRlcnMiOlsiOnJlc291cmNlcyJdLCJyZXR1cm5WYWx1ZVRlc3QiOnsiY29tcGFyYXRvciI6ImNvbnRhaW5zIiwidmFsdWUiOiJjZXJhbWljOi8vKj9tb2RlbD1ranpsNmh2ZnJidzZjOTY4cnY0eG1ycGc2NWw4NGJnNjFvM2tyN2pqaXYwcHZpbHNjdmp4NGF3ajBvbzNzMDQifX0seyJvcGVyYXRvciI6ImFuZCJ9LHsiY29udHJhY3RBZGRyZXNzIjoiIiwic3RhbmRhcmRDb250cmFjdFR5cGUiOiJTSVdFIiwiY2hhaW4iOiJldGhlcmV1bSIsIm1ldGhvZCI6IiIsInBhcmFtZXRlcnMiOlsiOnJlc291cmNlcyJdLCJyZXR1cm5WYWx1ZVRlc3QiOnsiY29tcGFyYXRvciI6ImNvbnRhaW5zIiwidmFsdWUiOiJjZXJhbWljOi8vKj9tb2RlbD1ranpsNmh2ZnJidzZjOWtmaHA3Y2xsc3AxdzVpOG83b2F0d2R1NWVkdzF3ZXZldTh1bzFwZnFyMXF2MjdudTcifX1d",
+    "encrypted": "7dsW9j70DdKvn_Xfhj3UoZ8482ZVl-Eu8J9F7kd-p55RwjAwWzD1CJAawLtO-roKg8xu1WdJQJLcXAITWkGV9qCkR-zSNFS377crmpKwpMs",
+    "folderName": "Private",
+    "folderDescription": ""
+  },
+  "appId": "319e6aa6-916d-46fc-a7bf-4c4b0cb04919",
+  "model": [
+    "kjzl6hvfrbw6c7tawlagd11qxot354gmhquwe0mfl4sggvj702j6rglvjsnopr3",
+    "kjzl6hvfrbw6c968rv4xmrpg65l84bg61o3kr7jjiv0pvilscvjx4awj0oo3s04"
+  ],
+  "folderType": 1,
+  "createdAt": "2023-08-31T07:29:15.995Z",
+  "updatedAt": "2023-08-31T07:29:15.995Z",
+  "folderId": "kjzl6kcym7w8yayoc1269iu3nkq437gv8u7ud7irzdxx0wkht2e4sq31umh2d7l",
+  "contentFolderIds": [
+    "kjzl6kcym7w8y8xxq0ecpwtomujgp3clxjoeibbyzju8pqdr2lp2xg5uiudtw57"
+  ],
+  "controller": "did:pkh:eip155:1:0x71888b7e2fE1163E5158Bc9D496758b6A4729BA1",
+  "mirrors": {},
+  "mirrorsLocked": false
+}
+```
+
+Under `mirrors` are the files in the folder.

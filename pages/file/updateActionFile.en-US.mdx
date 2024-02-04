@@ -1,0 +1,75 @@
+import { Callout } from 'nextra-theme-docs';
+
+# updateActionFile
+
+Create a public or encrypted action file.
+
+## Usage
+
+```js
+await connector.runOS({
+  method: SYSTEM_CALL.updateActionFile,
+  params: {
+    fileId: actionFileId,
+    isRelationIdEncrypted: true,
+    isCommentEncrypted: true,
+    fileName: 'like',
+  },
+});
+```
+
+## Parameters
+
+- `fileId` - `string` - the id of the action file
+- `isRelationIdEncrypted` - `boolean` - whether the relation id is encrypted
+- `isCommentEncrypted` - `boolean` - whether the comment is encrypted
+- `fileName` - `string` - the name of the action file
+
+## Returns
+
+```js
+{
+  currentFile: MirrorFile;
+  currentFolder: StructuredFolder;
+  allFolders: StructuredFolderRecord;
+}
+```
+
+```json
+{
+    "currentFile": {
+        "fileId": "kjzl6kcym7w8y5mb447avp7cmablcrtzvzxhwf5h3hyq3ynpvt385nykwl9egag",
+        "fsVersion": "0.11",
+        "action": {
+            "actionType": "LIKE",
+            "comment": "I like it!",
+            "isRelationIdEncrypted": true,
+            "isCommentEncrypted": true
+        },
+        "relationId": "kjzl6kcym7w8ya3kyamskljmo181t6z3vz6px0w90c76ea3m28g994t58341ijt",
+        "fileName": "like",
+        "fileType": 1,
+        "accessControl": {
+            "encryptionProvider": {
+                "protocol": "Lit",
+                "encryptedSymmetricKey": "e86e0c4ab3bc3bd5b21fdde03cc7fa068dcc5205d1e706447fe3da6d4b5f48a7a626314f75fe1a076f6148deb444de0287a2ae1c63b3005f03ca58885e5fc5dc1449bc5d281b023ced0e65625123fb4b7edf8c68b15a53047673a67a5d8298a8e27b1cdb6784057d9a95bd6f78d00ad63ebad83331c89957ff0f13f25ec36125000000000000002056eeb709b1216a599a91ec2ed083eca3f474ffc2970ee87fbe66fa2fbde6669ced73c2773a97e6ab1901557799e563a9",
+                "decryptionConditions": [
+                    ...
+                ],
+                "decryptionConditionsType": "AccessControlCondition"
+            }
+        },
+        "createdAt": "2023-11-02T09:47:29.432Z",
+        "updatedAt": "2023-11-02T09:47:58.446Z",
+        "external": {
+            ...
+        }
+    },
+    "currentFolder": {
+        ...
+    },
+    "allFolders": {
+        ...
+    }
+}
+```

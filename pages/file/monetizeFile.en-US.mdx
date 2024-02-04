@@ -1,0 +1,101 @@
+import { Callout } from 'nextra-theme-docs';
+
+# monetizeFile
+
+This function will transform a off-chain file into on-chain asset. It will create an NFT collection for the file with each `Collect NFT` representing access right of limited numbers.
+`Collect NFT`s can be sold to others and only owners of `Collect NFT` can access the file.
+Use this function to empower users with the ability to earn from their data.
+
+## Usage
+
+```javascript
+await connector.runOS({
+  method: SYSTEM_CALL.monetizeFile,
+  params: {
+    ...(indexFileId ? { indexFileId } : { streamId }),
+    datatokenVars: {
+      profileId,
+      collectLimit: 100,
+      amount: 0.0001,
+      currency: Currency.WMATIC,
+    },
+  },
+});
+```
+
+## Parameters
+
+```js
+{
+    streamId?: string;
+    indexFileId?: string;
+    datatokenVars: Omit<DatatokenVars, "streamId">;
+    decryptionConditions?: DecryptionConditions;
+}
+```
+
+- OPTIONAL - `streamId`: `string` - stream id, pass in the stream id if you want to monetize a stream
+- OPTIONAL - `indexFileId`: `string` - index file id, pass in the indexfile id if you want to monetize a file
+- `datatokenVars`: `Omit<DatatokenVars, "streamId">` - configure the datatoken
+  - OPTIONAL - `profileId`: `string` - Lens profile on Mumbai testnet
+    <Callout type="info">
+      We provide multiple monetize solutions. If you don't pass a profileId, the
+      transaction will go through our profileless solution(Meteor
+      Monetization Protocol on Mumbai). And we make it compatible with Lens
+      Profile for those who already have lens profiles and prefer to own their
+      monetized assets via Lens IDs.
+    </Callout>
+  - `collectLimit`: `number` - the number of NFTs to be minted
+  - `amount`: `number` - the price of each NFT
+  - `currency`: `Currency` - NFTs can be bought in which token
+  ```js
+  enum Currency {
+      USDC = "USDC",
+      DAI = "DAI",
+      WETH = "WETH",
+      WMATIC = "WMATIC"
+  }
+  ```
+- OPTIONAL - `decryptionConditions`: `DecryptionConditions` - decryption conditions configured to make sure only when these conditions are met, an address can mint a `Collect NFT`
+
+## Returns
+
+```js
+{
+    streamContent?: StreamContent;
+}
+```
+
+<Callout>
+  This function will ask users to send a transaction which deploys an NFT
+  contract on Mumbai(Polygon testnet).
+</Callout>
+
+Example:
+
+```json
+{
+  "streamContent": {
+    "file": {
+      "indexFileId": "kjzl6kcym7w8y9xhm86pip8s7mtn33wgu16o4pvzv03azhyz4evdg2kqvojtcd9",
+      "appVersion": "0.2.0",
+      "contentId": "QmNLq5E8tnrwkWUBkNM9dQMkGhMtkSirApMP85zUhGTt8s",
+      "contentType": "CID",
+      "comment": {
+        "mirrorName": "Screenshot 2023-06-04 at 00.13.00.png",
+        "note": "",
+        "tags": []
+      },
+      "datatokenId": "0x6DE7Fa42092441c6cB048211eC1370EA653F7eD1",
+      "fileType": 2,
+      "encryptedSymmetricKey": "03ccce5e32184f9deaed7ea796978fbf18c1dacfc52cb2187ac61921e5f8b4de14eea236989b31be9b4b326c6d22760a62e8afb4b348f6a356ed37926563852da9bd51c6904a474fec68dd237224b8b5dba7029b018d016b96f12a7b1b6202a4541142910a1fff130f47cd1ce7b437f11dff209e70ad1b9c9012f366a92ba7ec00000000000000201523af2fb430d6cd85d2cf3458226a85aaa31fc35037bf382b523c090ad3bf3be2ae4f78a993f38fa0f9e4e185ec8e8b",
+      "decryptionConditions": [
+        ...
+      ],
+      "decryptionConditionsType": "UnifiedAccessControlCondition",
+      "createdAt": "2023-06-09T10:45:11.869Z",
+      "updatedAt": "2023-06-09T10:46:27.154Z"
+    }
+  }
+}
+```

@@ -1,0 +1,26 @@
+import { Callout } from 'nextra-theme-docs';
+
+# loadBareFileContent
+
+Load the content of a bare file.
+
+## Usage
+
+```javascript
+await connector.runOS({
+  method: SYSTEM_CALL.loadBareFileContent,
+  params: indexFileId,
+});
+```
+
+## Parameters
+
+- `indexFileId`: `string` - the file id
+
+## Returns
+
+`Promise<string>` - the content of the file
+
+```
+data:image/png;base64,...
+```

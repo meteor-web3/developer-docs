@@ -1,0 +1,90 @@
+# loadCreatedDatatokenFiles
+
+Get all data tokens created by the current user.
+
+## Usage
+
+```js
+await connector.runOS({
+  method: SYSTEM_CALL.loadCreatedDatatokenFiles,
+});
+```
+
+## Parameters
+
+void
+
+## Returns
+
+`Promise<Record<string, MirrorFile>>` - a map of ids to data tokens.
+
+Example:
+
+```json
+{
+  "kjzl6kcym7w8y9hhvh7z02l06prdmx111etel7af79s7ub7fhblv78ucymh0mca": {
+    "fileId": "kjzl6kcym7w8y9hhvh7z02l06prdmx111etel7af79s7ub7fhblv78ucymh0mca",
+    "controller": "did:pkh:eip155:1:0xb4D93398f6F3FB5EE4436D1aE93b32d65693a799",
+    "fsVersion": "0.11",
+    "contentId": "kjzl6kcym7w8y7ls2o72058fa3nr6jwtd9dp77xrimnop5tttzkkbmjnr28d9to",
+    "contentType": {
+      "resource": "CERAMIC",
+      "resourceId": "kjzl6hvfrbw6c8h0oiiv2ccikb2thxsu98sy0ydi6oshj6sjuz9dga94463anvf"
+    },
+    "fileName": "create a file",
+    "fileType": 2,
+    "accessControl": {
+      "encryptionProvider": {
+        "protocol": "Lit",
+        "encryptedSymmetricKey": "7b2263697068657274657874223a227374497146636a526a716e6656524f7353475232754d42344d4f6479397073614269565a436e4364337a4e42636f69776d466f347438312f74746658593039596557726c4f5a316c47372b5366626d465933546c7832354a516b583466674d743777666847434f55523774424e4d703767755a4c593164507a4a455a6a387057544262735945553546643063567445477a633259564830584c6a38734e546679744e59745362786c38685233422f594e6c792b4d5549525744485151457342386b415544222c2264617461546f456e637279707448617368223a2264353832303665653433373330396534306434323732643065353134323161346137303964363834393762613566366633356461396262366162326332616631227d",
+        "decryptionConditions": [
+          ...
+        ],
+        "decryptionConditionsType": "UnifiedAccessControlCondition"
+      },
+      "monetizationProvider": {
+        "protocol": 2,
+        "chainId": 80001,
+        "datatokenId": "0xa782e251743149DB2f8f0D5d29A484Ea59f4dA9c",
+        "datatokenDetail": {
+          "address": "0xa782e251743149DB2f8f0D5d29A484Ea59f4dA9c",
+          "collect_info": {
+            "collect_nft_address": "",
+            "sold_list": [],
+            "sold_num": "0",
+            "total": "100",
+            "price": {
+              "amount": "0.0001",
+              "currency": "WMATIC",
+              "currency_addr": "0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889"
+            }
+          },
+          "content_uri": "ipfs://bafkreibhclaidfb4prlp7pzjiclruovs7njr5i4jkdllyyq72nn37ro6li",
+          "owner": "0xb4D93398f6F3FB5EE4436D1aE93b32d65693a799",
+          "source": "0xE280DCb31Dd08ea1249dd03f8aB63cB29EFcc48e",
+          "created_at": "2023-12-11 15:31:06.920597 +0800 CST",
+          "end_timestamp": "1702366247",
+          "chain_id": "80001"
+        }
+      }
+    },
+    "createdAt": "2023-12-11T07:19:39.652Z",
+    "updatedAt": "2023-12-11T07:31:15.230Z",
+    "content": {
+      "createdAt": "2023-12-11T07:19:38.940Z",
+      "encrypted": "{\"text\":false,\"images\":false,\"videos\":false}",
+      "images": [
+        "https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link"
+      ],
+      "modelVersion": "0.0.1",
+      "text": "hello",
+      "updatedAt": "2023-12-11T07:31:14.164Z",
+      "videos": []
+    },
+    "fileKey": "02b6bd4b78f409efa7087faf6ebfa3434e7319f03eae598f4d900913708b9154"
+  },
+  "kjzl6kcym7w8y9hhvh7z02l06prdmx111etel7af79s7ub7fhblv78ucymh08df":{
+    ...
+  }
+}
+```

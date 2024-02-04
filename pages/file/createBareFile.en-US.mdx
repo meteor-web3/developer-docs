@@ -1,0 +1,82 @@
+import { Callout } from 'nextra-theme-docs';
+
+# createBareFile
+
+Upload a bare file to Meteor Cloud.
+
+## Usage
+
+```js
+await connector.runOS({
+  method: SYSTEM_CALL.createBareFile,
+  params: {
+    folderId,
+    fileBase64,
+    fileName,
+    storageProvider,
+  },
+});
+```
+
+## Parameters
+
+- OPTIONAL - `folderId`: `string` - the folder id where the file will be uploaded to, default is the default folder specified while creating the app.
+- `fileBase64`: `string` - the file content in base64 format.
+- `fileName`: `string` - the file name.
+- OPTIONAL - `encrypted`: `boolean` - whether to encrypt the file, default is `false`.
+- `storageProvider`: `StorageProvider` - the storage provider to use.
+
+  ```js
+  interface StorageProvider {
+      name: StorageProviderName;
+      apiKey: string;
+  }
+
+  enum StorageProviderName {
+      Web3Storage,
+      Lighthouse,
+  }
+  ```
+
+## Returns
+
+```js
+{
+  newFile: MirrorFile;
+  currentFolder: StructuredFolder;
+  allFolders: StructuredFolderRecord;
+}
+```
+
+```json
+{
+  "newFile": {
+    "fileId": "kjzl6kcym7w8yb1bcyk8xshhdnk500572dgsqp94u47qzuj4fcbapftoooixgr1",
+    "fsVersion": "0.11",
+    "contentId": "QmPdYZqkKJjXbZv33fAsT2bd7U4R1QSUSqp53UXxHxjRFf",
+    "contentType": {
+      "resource": "IPFS"
+    },
+    "fileName": "telegram-logo-telegram-logo-transparent-telegram-icon-transparent-free-free-png.png",
+    "fileType": 2,
+    "accessControl": {
+      "encryptionProvider": {
+        "protocol": "Lit",
+        "encryptedSymmetricKey": "d83f6ea41119c6cf886b2c834440f29ae52c64faed673502d0545e54501e766e2f307b31f23c1900e8a22aa742fc1e10ce88619e11e6857b53fcb44f5b01e4cd205f41e54e7a6d7001cbf37b3f7f95ef6866428ab86c1e0ec6c5b9daf185c1b0b5330e1c0e3884295839073816b45c11acbf938ed52c64440b35e16debd493130000000000000020f344e547fad098d36ccd179a4959d13594e04aab2b05117e5169e165043119b670ca5ef4c0d28f05b9292616a68cb98a",
+        "decryptionConditions": [
+          ...
+        ],
+        "decryptionConditionsType": "UnifiedAccessControlCondition"
+      },
+      "monetizationProvider": {
+        "protocol": "Profileless",
+        "chainId": 80001,
+        "datatokenId": "0x199266091be791D2ADFaC09F9091Ab3f32691b7B"
+      }
+    },
+    "createdAt": "2023-11-02T10:36:56.748Z",
+    "updatedAt": "2023-11-02T10:37:39.424Z",
+    "content": "data:image/png;base64, ...",
+  }
+}
+```

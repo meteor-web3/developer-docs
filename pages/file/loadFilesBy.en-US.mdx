@@ -1,0 +1,71 @@
+# loadFilesBy
+
+Load multiple files under a data model
+
+## Usage
+
+```js
+await connector.runOS({
+  method: SYSTEM_CALL.loadFilesBy,
+  params: {
+    modelId,
+    pkh,
+  },
+});
+```
+
+## Parameters
+
+```js
+{
+  modelId: string;
+  pkh?: string;
+}
+```
+
+- `modelId`: `string` - the data model id
+- OPTIONAL - `pkh?`: `string` - user did. If provided, will return only streams created by the user. Otherwise will return all streams under the data model.
+
+## Returns
+
+return a `<fileId, content>` map
+
+```json
+{
+  "kjzl6kcym7w8yajaki86t96yfrfvvjzzofpxbt1gat9terf1h124r084ill3hw6": {
+    "pkh": "did:pkh:eip155:1:0xb4D93398f6F3FB5EE4436D1aE93b32d65693a799",
+    "appId": "a3f0ac63-ff7d-4085-aade-c04888b71088",
+    "modelId": "kjzl6hvfrbw6catek36h3pep09k9gymfnla9k6ojlgrmwjogvjqg8q3zpybl1yu",
+    "fileContent": {
+      "content": {
+        "text": "hello",
+        "images": [
+          "https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link"
+        ],
+        "videos": [],
+        "createdAt": "2023-11-02T06:15:06.903Z",
+        "encrypted": "{\"text\":false,\"images\":false,\"videos\":false}",
+        "updatedAt": "2023-11-02T06:15:06.903Z",
+        "modelVersion": "0.0.1"
+      },
+      "file": {
+        "fileId": "kjzl6kcym7w8yajaki86t96yfrfvvjzzofpxbt1gat9terf1h124r084ill3hw6",
+        "fileName": "create a file",
+        "fileType": 0,
+        "contentId": "kjzl6kcym7w8y7nut7qy49b0gfn75q6uxg2bah9ymzecatkhjqew3zvx2tklfbd",
+        "createdAt": "2023-11-02T06:15:14.269Z",
+        "fsVersion": "0.11",
+        "updatedAt": "2023-11-02T06:15:14.269Z",
+        "contentType": {
+          "resource": "CERAMIC",
+          "resourceId": "kjzl6hvfrbw6catek36h3pep09k9gymfnla9k6ojlgrmwjogvjqg8q3zpybl1yu"
+        }
+      }
+    }
+  },
+  "kjzl6kcym7w8y8s27vvv8hgwm5ibjtuulngjnrm6iq744ncetwm2o7820gjwwhe": {
+    ...
+  },
+  ...
+}
+```

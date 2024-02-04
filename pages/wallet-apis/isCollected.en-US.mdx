@@ -1,0 +1,29 @@
+import { Callout } from 'nextra-theme-docs';
+
+# isCollected
+
+Get whether a Datatoken has been collected by a wallet address.
+
+## Usage
+
+```js
+await connector.isCollected({
+  datatokenId,
+  address,
+});
+```
+
+## Parameters
+
+- `string` - data token ID.
+- `string` - wallet address.
+
+## Returns
+
+```js
+Promise<boolean>
+```
+
+```json
+true
+```

@@ -1,0 +1,36 @@
+import { Callout } from 'nextra-theme-docs';
+
+# getPKP
+
+Connect to a [Lit PKP](https://developer.litprotocol.com/pkp/intro) wallet.
+
+Each Programmable Key Pair (PKP) is a versatile MPC wallet. Meteor integrates PKP to:
+
+- Provide users of web3 with seamless, "seed-phraseless" onboarding experiences.
+- Facilitate transaction execution on blockchains, storage networks, and other state machines.
+- Build fully decentralized application backends.
+
+<Callout>
+  To try Lit PKP, visit the [LIT faucet](https://faucet.litprotocol.com/) to
+  claim LIT Test tokens. Then, mint a PKP
+  [here](https://explorer.litprotocol.com/mint-pkp).
+</Callout>
+
+## Usage
+
+```js
+await connector.runOS({ method: SYSTEM_CALL.getPKP });
+```
+
+## Parameters
+
+void
+
+## Returns
+
+```js
+{
+    address: '0xE4184Fab2990Cd72111401218A8784D064BC651f',
+    publicKey: '04367c96079d08bc1b98c9ec1ce414fe82aa224b1739507eb2…074a72b25cc3940aeb67d2e03efad113c8a82d8194bdbfd2f'
+}
+```

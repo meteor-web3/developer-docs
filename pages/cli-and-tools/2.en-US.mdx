@@ -1,0 +1,96 @@
+import { Callout } from 'nextra-theme-docs';
+
+# Step 2: Configure your app
+
+Open the project created in the previous step. The project structure should be like
+
+```json
+.
+├── LICENSE
+├── README.md
+├── meteor.config.ts  // config your app basic information here
+├── index.html
+├── models  // data models pre-defined here
+│   ├── fs  // file system data models
+│   ├── toolkits  // dweb toolkits
+│   ├── post.graphql  // post data model, an example as a post of web3 social app
+│   └── profile.graphql  // profile data model, an example as user profile of web3 social
+├── output
+│   └── app.json  // generated after app creation, contains app information
+├── package.json
+├── .env.example
+├── src  // demo source code
+│   ├── components
+│   ├── pages
+│   ├── global.css
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+├── tsconfig.json
+├── vite.svg
+└── vite.config.ts
+```
+
+Open `meteor.config.ts`, you can configure your app's basic information here.
+
+```typescript
+export const config = {
+  name: 'meteor_app_with_toolkits_example', // app name should NOT contain "-"
+  logo: 'https://bafybeifozdhcbbfydy2rs6vbkbbtj3wc4vjlz5zg2cnqhb2g4rm2o5ldna.ipfs.w3s.link/meteor.svg',
+  website: [], // you can use localhost:(port) for testing
+  defaultFolderName: 'Main',
+  description: 'This is meteor app example.',
+  models: [
+    {
+      isPublicDomain: false, // default
+      schemaName: 'post.graphql',
+      encryptable: ['text', 'images', 'videos'], // strings within the schema and within the array represent fields that may be encrypted, while fields within the schema but not within the array represent fields that will definitely not be encrypted
+    },
+    {
+      isPublicDomain: true,
+      schemaName: 'profile.graphql',
+      encryptable: [],
+    },
+    ...
+  ],
+  ceramicUrl: null, // leave null to use meteor test Ceramic node. Set to {Your Ceramic node Url} for mainnet, should start with "https://".
+};
+```
+
+You can config your app slug (as a unique identifier), name, logo image URL, description,
+models, etc. here. For development and testing, you may set the website to 'localhost'.
+For production usage, you should set the website to your app's domain name. The `defaultFolderName`
+is the default folder path when a user creates data under your app.
+The `models` are the data models to use in your app. You can define your own data models in the `models` folder.
+For more info about data models, please refer to [Step 3](#step-3-customize-data-models).
+
+`isPublicDomain` specifies whether the data model can be used by other apps. If you set it to true, other developers
+can use your data model in their apps. If you set it to false, other developers can NOT use your data model, only
+your app can use it and access the data resources under this model.
+
+`schemaName` refers to the data model file name under the `models` folder. For example, if you want to use the `post` model,
+`schemaName` should be `post.graphql`.
+
+The `encryptable` is an array used to specify which fields in the data model can be encrypted. Fields not in the `encryptable` list
+will always be open and can be accessed by anyone. Fields in the `encryptable` list can be encrypted by the app developers.
+For example, if you set `encryptable` to `['text', 'images', 'videos']`, the `text`, `images` and `videos` fields in the `post` model
+can be encrypted by the app developers. They are not necessarily encrypted, but can be encrypted if the app developers want to.
+Meanwhile, the fields not in the `encryptable` array will always be open and can be accessed by anyone.
+
+<Callout type="info">
+  Note that if a model is configured as `isPublicDomain: true`, the
+  `encryptable` field will be ignored, because the whole model is public and
+  thus all fields need to be open. And if a model is configured as
+  `isPublicDomain: false`, the `encryptable` field is required. if you don't
+  want to encrypt any fields, you can set `encryptable` to an empty array `[]`.
+</Callout>
+
+The `ceramicUrl` is the Ceramic node URL to use. If you leave it null, the app will use the test Ceramic node
+provided by Meteor.
+
+<Callout>
+  Note that the test ceramic node of Meteor is just for development and
+  testing, and the data on it will be cleared regularly. So you should use your
+  own Ceramic node for production usage. And DON'T put any important data on the
+  test node.
+</Callout>

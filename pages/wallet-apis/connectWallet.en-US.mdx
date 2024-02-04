@@ -1,0 +1,64 @@
+# connectWallet
+
+Connect wallet.
+
+## Usage
+
+1. Connect with built-in wallets supported by Meteor Wallet
+
+```js
+import { WALLET } from '@meteor-web3/connector';
+
+const pkh = await connector.connectWallet({
+  wallet: WALLET.METAMASK,
+});
+```
+
+2. Pass in any [Ethereum Provider](https://eips.ethereum.org/EIPS/eip-1193) to use
+
+```js
+import { WALLET } from '@meteor-web3/connector';
+
+const pkh = await connector.connectWallet({
+  provider: window.ethereum,
+});
+```
+
+## Parameters
+
+- `enum WALLET` - which wallet to connect with
+
+```js
+enum WALLET {
+  METAMASK = "MetaMask",
+  WALLETCONNECT = "WalletConnect",
+  COINBASE = "Coinbase",
+  PARTICLE = "Particle",
+  EXTERNAL_WALLET = "ExternalWallet",
+}
+```
+
+or
+
+- `any` - providers conforming to [EIP-1193: Ethereum Provider JavaScript API](https://eips.ethereum.org/EIPS/eip-1193)
+
+## Returns
+
+```js
+Promise<{
+    address: string;
+    chain: Chain;
+    wallet: WALLET;
+}>
+```
+
+```json
+{
+  "address": "0x312eA852726E3A9f633A0377c0ea882086d66666",
+  "chain": {
+    "chainId": 80001,
+    "chainName": "mumbai"
+  },
+  "wallet": "MetaMask"
+}
+```

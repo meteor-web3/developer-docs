@@ -1,0 +1,38 @@
+{
+  "createCapability": {
+    "title": "createCapability",
+    "icon": "",
+    "description": "",
+    "href": "/capability/createCapability"
+  },
+  "checkCapability": {
+    "title": "checkCapability",
+    "icon": "",
+    "description": "",
+    "href": "/capability/checkCapability"
+  },
+  "getValidAppCaps": {
+    "title": "getValidAppCaps",
+    "icon": "",
+    "description": "",
+    "href": "/capability/getValidAppCaps"
+  },
+  "getModelBaseInfo": {
+    "title": "getModelBaseInfo",
+    "icon": "",
+    "description": "",
+    "href": "/capability/getModelBaseInfo"
+  },
+  "getPKP": {
+    "title": "getPKP",
+    "icon": "",
+    "description": "",
+    "href": "/capability/getPKP"
+  },
+  "executeLitAction": {
+    "title": "executeLitAction",
+    "icon": "",
+    "description": "",
+    "href": "/capability/executeLitAction"
+  }
+}

@@ -1,0 +1,80 @@
+# updateFolderBaseInfo
+
+Update the metadata of a folder
+
+## Usage
+
+```js
+await connector.runOS({
+  method: SYSTEM_CALL.updateFolderBaseInfo,
+  params: {
+    folderId,
+    folderName,
+    folderDescription,
+  },
+});
+```
+
+## Parameters
+
+```js
+{
+    folderId: string;
+    folderName?: string;
+    folderDescription?: string;
+    syncImmediately?: boolean;
+}
+```
+
+- `folderId`: `string` - id of the folder to update
+- OPTIONAL - `folderName`: `string` - new name of the folder
+- OPTIONAL - `folderDescription`: `string` - new description of the folder
+- OPTIONAL - `syncImmediately`: `boolean` - whether to sync the update immediately or wait for os scheduled sync
+
+## Returns
+
+```js
+{
+  currentFolder: StructuredFolder;
+  allFolders: StructuredFolderRecord;
+}
+```
+
+Example:
+
+```json
+{
+  "currentFolder": {
+    "options": {
+      "encryptedSymmetricKey": "ce9caffa02b4027358e80c4a4e6ce2bb6ab2382cf743ed2a249e3fe4abaafd6096baef8c38688e738a8787bedfbe7c097cee15a6fe41ead2da255fd81f2906075780b548957d78c41dd90ec2f4de917203d70660dafeca300679f072783d438079d0763599a95e6177249f65197204e407bba4aa9bf0e19f8e036a0b7bb6a8b40000000000000020750658d717be1fa46a6e7d05232d39f3dca49c4ba1c962b0e73d9c9c7b5c29e0e6ef3f7fd5cafaa248ead95e36b2e4a0",
+      "decryptionConditions": "W3siY29udHJhY3RBZGRyZXNzIjoiIiwic3RhbmRhcmRDb250cmFjdFR5cGUiOiIiLCJjaGFpbiI6InBvbHlnb24iLCJtZXRob2QiOiIiLCJwYXJhbWV0ZXJzIjpbIjp1c2VyQWRkcmVzcyJdLCJyZXR1cm5WYWx1ZVRlc3QiOnsiY29tcGFyYXRvciI6Ij0iLCJ2YWx1ZSI6IjB4YjREOTMzOThmNkYzRkI1RUU0NDM2RDFhRTkzYjMyZDY1NjkzYTc5OSJ9fSx7Im9wZXJhdG9yIjoiYW5kIn0seyJjb250cmFjdEFkZHJlc3MiOiIiLCJzdGFuZGFyZENvbnRyYWN0VHlwZSI6IlNJV0UiLCJjaGFpbiI6InBvbHlnb24iLCJtZXRob2QiOiIiLCJwYXJhbWV0ZXJzIjpbIjpyZXNvdXJjZXMiXSwicmV0dXJuVmFsdWVUZXN0Ijp7ImNvbXBhcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiY2VyYW1pYzovLyo_bW9kZWw9a2p6bDZodmZyYnc2YzlrNHU3ZmpzM2d1YWFzZjJydDdzN2hkbzI2M3hvODRpcmFiN3BuZTVtZmp3c3hxYzh6In19LHsib3BlcmF0b3IiOiJhbmQifSx7ImNvbnRyYWN0QWRkcmVzcyI6IiIsInN0YW5kYXJkQ29udHJhY3RUeXBlIjoiU0lXRSIsImNoYWluIjoicG9seWdvbiIsIm1ldGhvZCI6IiIsInBhcmFtZXRlcnMiOlsiOnJlc291cmNlcyJdLCJyZXR1cm5WYWx1ZVRlc3QiOnsiY29tcGFyYXRvciI6ImNvbnRhaW5zIiwidmFsdWUiOiJjZXJhbWljOi8vKj9tb2RlbD1ranpsNmh2ZnJidzZjYTRyN2NkaTdhZGJtbHU0ZHR1YXUzd3F0bmR6eDlvd3Bwb2x4aWs3aHhrOGZ3Y3M0angifX0seyJvcGVyYXRvciI6ImFuZCJ9LHsiY29udHJhY3RBZGRyZXNzIjoiIiwic3RhbmRhcmRDb250cmFjdFR5cGUiOiJTSVdFIiwiY2hhaW4iOiJwb2x5Z29uIiwibWV0aG9kIjoiIiwicGFyYW1ldGVycyI6WyI6cmVzb3VyY2VzIl0sInJldHVyblZhbHVlVGVzdCI6eyJjb21wYXJhdG9yIjoiY29udGFpbnMiLCJ2YWx1ZSI6ImNlcmFtaWM6Ly8qP21vZGVsPWtqemw2aHZmcmJ3NmNhZ201MGdtNGlqb2Vua3BieGtqNDVnOXJiNDF4cWIxejBodGl4eHMwY2Q3NHRyd3J6ciJ9fV0",
+      "encrypted": "vK4UecTOGaBgVVCbI4AOb0ZLZYX200zLl4zxhDLDHKeW4iWGCRHAO-TW_FVoPHhFikZENFCgzOWNDFtn92a2-db0be7g5ycMu_LOJNojyE6PF0cEgF7ng6gv5UWdqklUZFiCiDY3vFmwUaVnmoJue087VlcfZVgtmM6J72CWTYo2gF4ag9dtYveXimlGcIBr",
+      "folderName": "2023-06-09T10:02:14.887Z",
+      "folderDescription": "2023-06-09T10:02:14.887Z"
+    },
+    "app": "fxy001",
+    "model": [
+      "kjzl6hvfrbw6c9k4u7fjs3guaasf2rt7s7hdo263xo84irab7pne5mfjwsxqc8z",
+      "kjzl6hvfrbw6ca4r7cdi7adbmlu4dtuau3wqtndzx9owppolxik7hxk8fwcs4jx"
+    ],
+    "folderType": 1,
+    "createdAt": "2023-06-09T09:47:53.636Z",
+    "updatedAt": "2023-06-09T10:02:16.247Z",
+    "folderId": "kjzl6kcym7w8y50jo1wsu9x8p13l98amxnc182dfziguxo19l5qltwsjtext19x",
+    "contentFolderIds": [
+      "kjzl6kcym7w8y68m4oa2p8m2nl4om0hpszgz41tdaaue1mx8ov5jyyb75jmshhh"
+    ],
+    "mirrors": {},
+    "mirrorsLocked": false
+  },
+  "allFolders": {
+    "kjzl6kcym7w8y8vwgxr9qq3fowjkb8usdibsame3d69tivb8rpjoa1q8pxz0aji": {
+      ...
+    },
+    "kjzl6kcym7w8y50jo1wsu9x8p13l98amxnc182dfziguxo19l5qltwsjtext19x": {
+      ...
+    },
+    ...
+  }
+}
+```

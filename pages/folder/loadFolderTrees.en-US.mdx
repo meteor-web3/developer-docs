@@ -1,0 +1,95 @@
+# loadFolderTrees
+
+Retrieve all folders under an app
+
+## Usage
+
+```js
+await connector.runOS({
+  method: SYSTEM_CALL.loadFolderTrees,
+});
+```
+
+## Parameters
+
+void
+
+## Returns
+
+```
+StructuredFolderRecord
+```
+
+Example:
+
+```json
+{
+  "folders": {
+    "kjzl6kcym7w8y61n359uy5n4ac5pv8pzx3rci63tu3wyj5hkmrxppqyutwd4r98": {
+      "appId": "a3f0ac63-ff7d-4085-aade-c04888b71088",
+      "model": [
+        "kjzl6hvfrbw6cagt694iim2wuecu7eumeds7qd0p6uzm8dnqsq69ll7kacm05gu",
+        "kjzl6hvfrbw6c7gu88g66z28n81lcpbg6hu2t8pu2pui0sfnpvsrhqn3kxh9xai"
+      ],
+      "controller": "did:pkh:eip155:1:0xb4D93398f6F3FB5EE4436D1aE93b32d65693a799",
+      "folderId": "kjzl6kcym7w8y61n359uy5n4ac5pv8pzx3rci63tu3wyj5hkmrxppqyutwd4r98",
+      "folderName": "Main",
+      "folderType": 0,
+      "contentFolderIds": [
+        "kjzl6kcym7w8y9n06jn3jgcg23ehcl2vi1o0tnmz2urt6wu898wf6ev6kspjjkt"
+      ],
+      "accessControl": {
+        "encryptionProvider": {
+          "protocol": "Lit",
+          "encryptedSymmetricKey": "9fe3023deb361661424ce5141b99bc0a3c518c7a453792383246b582dfb41990c6720484fcb5492e36783c87db69ce01b256c101f7b2d4c0dd613ae20bde8ff949b7e4a0350b9a78fde9dfb40306d276f5bef2560861a643d0254e4ffb32c5b332cc253aab676eaae293ffb675d4bde3b68c6d2c1fd8b5ba0736168eab1831d30000000000000020cd91d65d839d0de489ab395c02899f1a1ac3b2add3b2b3b3864f6d4813679c4d43550eccb596822c3a48dcc10b3a5ab5",
+          "decryptionConditions": [],
+          "decryptionConditionsType": "AccessControlCondition"
+        }
+      },
+      "createdAt": "2023-11-02T06:14:13.052Z",
+      "updatedAt": "2023-11-02T10:45:11.310Z",
+      "options": {},
+      "mirrorRecord": {
+        "kjzl6kcym7w8yajaki86t96yfrfvvjzzofpxbt1gat9terf1h124r084ill3hw6": {
+          "mirrorId": "kjzl6kcym7w8yajaki86t96yfrfvvjzzofpxbt1gat9terf1h124r084ill3hw6",
+          "mirrorFile": {
+            "content": {
+              "text": "hello",
+              "images": [
+                "https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link"
+              ],
+              "videos": [],
+              "createdAt": "2023-11-02T06:15:06.903Z",
+              "encrypted": "{\"text\":false,\"images\":false,\"videos\":false}",
+              "updatedAt": "2023-11-02T06:15:06.903Z",
+              "modelVersion": "0.0.1"
+            },
+            "fileId": "kjzl6kcym7w8yajaki86t96yfrfvvjzzofpxbt1gat9terf1h124r084ill3hw6",
+            "controller": "did:pkh:eip155:1:0xb4D93398f6F3FB5EE4436D1aE93b32d65693a799",
+            "fileName": "create a file",
+            "fileType": 0,
+            "contentId": "kjzl6kcym7w8y7nut7qy49b0gfn75q6uxg2bah9ymzecatkhjqew3zvx2tklfbd",
+            "createdAt": "2023-11-02T06:15:14.269Z",
+            "fsVersion": "0.11",
+            "updatedAt": "2023-11-02T06:15:14.269Z",
+            "contentType": {
+              "resource": "CERAMIC",
+              "resourceId": "kjzl6hvfrbw6catek36h3pep09k9gymfnla9k6ojlgrmwjogvjqg8q3zpybl1yu"
+            }
+          },
+          "folderId": "kjzl6kcym7w8y61n359uy5n4ac5pv8pzx3rci63tu3wyj5hkmrxppqyutwd4r98",
+          "bucketId": "kjzl6kcym7w8y9n06jn3jgcg23ehcl2vi1o0tnmz2urt6wu898wf6ev6kspjjkt"
+        },
+        ...
+      },
+      "mirrorRecordLocked": false
+    },
+    "kjzl6kcym7w8y7krvvy2tffzls1b2spp71a97smqca4j1wumoqkvx2qi3ygzff3": {
+        ...
+    },
+    ...
+  }
+}
+```
+
+Under `mirrorRecord` are the files in the folder.

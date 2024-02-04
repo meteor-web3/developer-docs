@@ -1,0 +1,74 @@
+import { Callout } from 'nextra-theme-docs';
+
+# Step 1: Init framework
+
+<Callout type="warning">
+  Make sure you have all the [requirements](/cli-and-tools) installed before you
+  start.
+</Callout>
+
+In the terminal, run
+
+```bash
+pnpm install -g create-meteor-app
+```
+
+We install the `create-meteor-app` package globally to enable developers to initialize a meteor app project and deploy it to Meteor.
+
+After installation, use --help to see more features.
+
+```bash
+meteor --help
+```
+
+You get the following output
+
+```sh
+Usage: meteor [options] [command]
+
+CLI for meteor OS interaction
+
+Options:
+  -V, --version             output the version number
+  -h, --help                display help for command
+
+Commands:
+  init <project-directory>  Init meteor project.
+  deploy                    Deloy a meteor project.
+  update                    Update an exsiting meteor project.
+  keypair                   Generate private key pair.
+  help [command]            display help for command
+```
+
+Initialize the meteor project by running the command
+
+```javascript
+meteor init <project_directory>
+```
+
+While initialising the project, you can choose whether to add the [DWeb Toolkits](/sdk/dweb-toolkits) to your project.
+
+<Callout type="info">
+  DWeb Toolkits are series of SDKs to ease the integration of Meteor and
+  other Web3 protocols, automatically store data in Meteor Cloud and simplify
+  the development of applications.
+</Callout>
+
+```sh
+👉 Add toolkits? [y/n]: y
+🚧 Checking package version...
+🚥 The latest version of create-meteor-app is 1.x.x.
+🚔 Validating app name...
+🚎 Initing meteor app...
+🛟 Preparing...
+✅ Done!
+✨ To get started:
+
+📦 cd demo
+🔧 add your data models into ./models
+🔧 configure your dapp in meteor.config.ts
+   meteor deploy
+   pnpm install
+   pnpm build
+   pnpm dev
+```

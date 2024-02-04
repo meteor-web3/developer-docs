@@ -1,0 +1,35 @@
+# Why Meteor?
+
+## Signature matters
+
+Meteor, along with other latest data networks are building with [EIP-4361](https://eips.ethereum.org/EIPS/eip-4361)
+and [EIP-5573](https://eips.ethereum.org/EIPS/eip-5573). These proposals are designed to standardize the way of user creating
+identities, authenticating with applications, and managing data resources. In this context, `Sign-In with Ethereum` signature
+is a complete proof of access rights to data resources. Therefore, it is important to keep the signature safe and secure.
+For if the signature is stolen, the attacker can access the data resources and do all the bad things.
+So we are building Meteor to take the duty of keeping everything safe and beyond the control of malicious applications.
+
+## How we ensure the security?
+
+Meteor provides isolated data environments for each application. Each application has its own independent file system and
+a scope of which data resources it can access. This scope will be specified clearly when the user is signing in.
+
+<img src="/images/why/1.png" width="90%" className="mx-auto my-2.5" />
+
+User data will first be encrypted before putting in the file system. In another word, the applications will never see the raw data
+for all user data are encrypted.
+
+When an application is requesting access to a data resource, the user will be notified and asked for permission.
+Specifically, the application will request the user to sign a message and declare which data resources it is accessing within that message.
+
+<img src="/images/why/2.png" width="50%" className="mx-auto my-2.5" />
+
+Meteor will check the scope(**_A_**) and the message(**_B_**) to ensure that **_B_** is a subset of **_A_**.
+If the request is valid, the application will be granted access to the data resource. Otherwise, the request will be rejected.
+
+**Summary:**
+Meteor is able to protect data security by:
+
+- Isolating data environments for each application
+- Encrypting user data
+- Checking the scope of data access requests

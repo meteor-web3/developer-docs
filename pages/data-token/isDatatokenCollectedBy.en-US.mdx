@@ -1,0 +1,21 @@
+# isDatatokenCollectedBy
+
+Get if a data token is collected by a wallet address.
+
+## Usage
+
+```js
+await connector.runOS({
+  method: SYSTEM_CALL.isDatatokenCollectedBy,
+  params: { datatokenId, collector: address },
+});
+```
+
+## Parameters
+
+- `datatokenId`: `string` - data token id.
+- `collector`: `string` - wallet address.
+
+## Returns
+
+boolean

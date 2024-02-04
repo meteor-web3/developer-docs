@@ -1,0 +1,54 @@
+{
+  "loadDatatoken": {
+    "title": "loadDatatoken",
+    "icon": "",
+    "description": "",
+    "href": "/data-token/loadDatatoken",
+    "type": "hidden"
+  },
+  "loadDatatokens": {
+    "title": "loadDatatokens",
+    "icon": "",
+    "description": "",
+    "href": "/data-token/loadDatatokens"
+  },
+  "loadDatatokensCreatedBy": {
+    "title": "loadDatatokensCreatedBy",
+    "icon": "",
+    "description": "",
+    "href": "/data-token/loadDatatokensCreatedBy",
+    "type": "hidden"
+  },
+  "loadDatatokensCollectedBy": {
+    "title": "loadDatatokensCollectedBy",
+    "icon": "",
+    "description": "",
+    "href": "/data-token/loadDatatokensCollectedBy",
+    "type": "hidden"
+  },
+  "loadDatatokenCollectors": {
+    "title": "loadDatatokenCollectors",
+    "icon": "",
+    "description": "",
+    "href": "/data-token/loadDatatokenCollectors",
+    "type": "hidden"
+  },
+  "isDatatokenCollectedBy": {
+    "title": "isDatatokenCollectedBy",
+    "icon": "",
+    "description": "",
+    "href": "/data-token/isDatatokenCollectedBy"
+  },
+  "loadCreatedDatatokenFiles": {
+    "title": "loadCreatedDatatokenFiles",
+    "icon": "",
+    "description": "",
+    "href": "/data-token/loadCreatedDatatokenFiles"
+  },
+  "loadCollectedDatatokenFiles": {
+    "title": "loadCollectedDatatokenFiles",
+    "icon": "",
+    "description": "",
+    "href": "/data-token/loadCollectedDatatokenFiles"
+  }
+}

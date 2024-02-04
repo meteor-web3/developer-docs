@@ -1,0 +1,209 @@
+---
+title: 'Home'
+---
+
+import Link from '@components/core/Link';
+import { Tabs, Tab } from 'nextra-theme-docs';
+import { Header, HeaderVideo } from '@components/react/docs';
+import Card, { Cards } from '@components/core/Card';
+import { Callout } from 'nextra-theme-docs';
+
+# Welcome to the Meteor Docs
+
+Explore our documentation and a variety of resources to help you get started building on Meteor and
+powering your dapp with data sovereighty and content monetization.
+
+<div className="mt-8">
+  <Tabs
+    items={[
+      '👋 Introduction',
+      '🛠️ Tutorial',
+      '🧑‍💻 API Reference',
+      '❓ How it works',
+      '🫶 Support',
+    ]}
+  >
+    <Tab>
+      <div className="mb-8">
+        Let us deep-dive into what Meteor is and which kind of unique internet
+        experiences it could bring to the world and how it could be used to
+        build dapps with user-centric data ownership.
+      </div>
+      <div className="mb-4 text-xl font-bold">Guides</div>
+      <Cards num={2}>
+        <Card
+          title="What is Meteor?"
+          description="A new kind of identity computer to visualize data files over dApps"
+          icon="🏆"
+          href="/overview"
+        />
+        <Card
+          title="Meteor Cloud"
+          description="A cloud drive to store, visualize and monetize all data assets, owner by you"
+          icon="💻"
+          href="/meteor-cloud"
+        />
+        <Card
+          title="Meteor Wallet"
+          description="World's distributed solution for safely hold user's Sign-In with Ethereum signatures"
+          icon="💰"
+          href="/meteor-wallet"
+        />
+        <Card
+          title="DApp Store"
+          description="A decentralized App Store incentivizing production of data"
+          icon="📼"
+          href="/dapp-store"
+        />
+      </Cards>
+      <div className="text-right mt-4">
+        <Link href="/overview">View all →</Link>
+      </div>
+    </Tab>
+    <Tab>
+      <div className="mb-8">
+        Meteor CLI and tools to help you create a meteor application,
+        register to the network, and deploy your self-hosted meteor-gated
+        ceramic node for your dapp.
+      </div>
+      <div className="mb-4 text-xl font-bold">Guides</div>
+      <Cards num={2}>
+        <Card
+          title="Key Concepts"
+          description="Explanation of several key concepts of Meteor."
+          icon="🔑"
+          href="/key-concepts"
+        />
+        <Card
+          title="create-meteor-app"
+          description="A CLI tool to help you create a meteor application."
+          icon="🧩"
+          href="/cli-and-tools"
+        />
+        <Card
+          title="Meteor Connector"
+          description="A quick guide to get you started with the meteor-connector JS SDK."
+          icon="🚀"
+          href="/meteor-connector"
+        />
+        <Card
+          title="DWeb Toolkits"
+          description="A series of toolkits to ease integration of Meteor with various Web3 protocols."
+          icon="⚙️"
+          href="/dweb-toolkits"
+        />
+      </Cards>
+      <div className="text-right mt-4">
+        <Link href="/key-concepts">View all →</Link>
+      </div>
+    </Tab>
+    <Tab>
+      <div className="mb-8">
+        Meteor APIs is a collection of methods that can power your app
+        with identity, storage, ACL, monetization, etc. It provides system calls
+        to access the Meteor kernel and its features.
+      </div>
+      <div className="mb-4 text-xl font-bold">Guides</div>
+      <Cards num={2}>
+        <Card
+          title="Wallet APIs"
+          description="Wallet-related methods"
+          icon="🚀"
+          href="/wallet-apis/connectWallet"
+        />
+        <Card
+          title="DApp Store APIs"
+          description="APIs for querying DApp Table"
+          icon="📝"
+          href="/dapp-store-apis/getDappTable"
+        />
+        <Card
+          title="System Calls"
+          description="System call functions for building upon Meteor Cloud"
+          icon="📝"
+          href="/capability/createCapability"
+        />
+      </Cards>
+    </Tab>
+    <Tab>
+      <div className="mb-8">
+        Meteor builds security and privacy into today's data network
+        systems.
+      </div>
+      <div className="mb-4 text-xl font-bold">Guides</div>
+      <Cards num={2}>
+        <Card
+          title="How it works?"
+          description="Protect SIWE signatures & data. Control and coordinate multiple web3 protocols"
+          icon="🔒"
+          href="/how-it-works"
+        />
+      </Cards>
+      <div className="text-right mt-4">
+        <Link href="/how-it-works">View all →</Link>
+      </div>
+    </Tab>
+    {/* <Tab>
+      <div className="mb-8">
+        Meteor controls and coordinates multiple web3 protocols to build a
+        new kind of identity computer, which powers storage-based dApp around
+        identity.
+      </div>
+      <div className="mb-4 text-xl font-bold">Guides</div>
+      <Cards num={2}>
+        <Card
+          title="Data Wallet"
+          description="control and coordinate multiple web3 protocols"
+          icon="💵"
+          href="/system-calls/data-wallet"
+        />
+        <Card
+          title="System Primitives"
+          description="control and coordinate multiple web3 protocols"
+          icon="🔖"
+          href="/system-calls/primitives"
+        />
+        <Card
+          title="Dapp Table"
+          description="control and coordinate multiple web3 protocols"
+          icon="🎲"
+          href="/system-calls/dapp-table"
+        />
+        <Card
+          title="File System"
+          description="control and coordinate multiple web3 protocols"
+          icon="🗃️"
+          href="/system-calls/file-system"
+        />
+      </Cards>
+      <div className="text-right mt-4">
+        <Link href="/system-calls">View all →</Link>
+      </div>
+    </Tab> */}
+    <Tab>
+      <div className="mb-8">
+        Welcome to contact us for any questions or feedbacks or seeking for
+        potential partnership.
+      </div>
+      <div className="mb-4 text-xl font-bold">Guides</div>
+      <Cards num={2}>
+        <Card
+          title="FAQ"
+          description="Frequently asked questions"
+          icon="😼"
+          href="/support/faq"
+        />
+        <Card
+          title="Contact"
+          description="Welcome to provide us with your feedback or ask any questions you may have"
+          icon="💌"
+          href="/support/contact"
+        />
+      </Cards>
+      <div className="text-right mt-4">
+        <Link href="/how-it-works">View all →</Link>
+      </div>
+    </Tab>
+
+  </Tabs>
+</div>

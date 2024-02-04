@@ -1,0 +1,85 @@
+# uploadFile
+
+Upload a file to a folder.
+
+## Usage
+
+```js
+await connector.runOS({
+  method: SYSTEM_CALL.uploadFile,
+  params: {
+    folderId,
+    fileBase64,
+    fileName,
+    encrypted: false,
+    storageProvider,
+  },
+});
+```
+
+## Parameters
+
+```js
+{
+  folderId: string;
+  fileBase64: string;
+  fileName: string;
+  encrypted: boolean;
+  storageProvider: StorageProvider;
+}
+```
+
+- OPTIONAL - `folderId`: `string` - The folder id.
+- `fileBase64`: `string` - The file data in base64 format.
+- `fileName`: `string` - The file name.
+- `encrypted`: `boolean` - Whether the file is encrypted.
+- `storageProvider`: `StorageProvider` - The upload provider. This field specifies
+  which IPFS gateway to use. Developers can choose between `web3.storage` and `lighthouse`.
+  `js
+  interface storageProvider {
+      name: StorageProviderName;
+      apiKey: string;
+  }
+  enum StorageProviderName {
+      Web3Storage,
+      Lighthouse,
+  }
+  `
+
+## Returns
+
+```js
+{
+  newFile: MirrorFile;
+  currentFolder: StructuredFolder;
+  allFolders: StructuredFolders;
+}
+```
+
+Example:
+
+```json
+{
+  "newFile": {
+    "appVersion": "0.2.0",
+    "contentId": "QmSH5No64brfMi96BjgwZ4sxqwNNS1LqwFGAHpk1ZSmvXJ",
+    "contentType": "CID",
+    "comment": {
+      "mirrorName": "Screenshot 2023-06-06 at 15.07.23.png",
+      "note": "",
+      "tags": []
+    },
+    "fileType": 0,
+    "createdAt": "2023-06-09T10:12:32.925Z",
+    "updatedAt": "2023-06-09T10:12:32.925Z",
+    "indexFileId": "kjzl6kcym7w8y4whujhx77b6kicgcra469pgmchidfb6tctvba24rxsvfurpt6p",
+    "content": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWYA..."
+  },
+  "currentFolder": {
+    ...
+  },
+  "allFolders": {
+    ...
+  }
+}
+```

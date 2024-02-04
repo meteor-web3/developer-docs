@@ -1,0 +1,76 @@
+# loadDatatokens
+
+Get the detailed info of a list of data tokens by their ids(Data Token id is the contract address of the data token).
+
+## Usage
+
+```js
+await connector.runOS({
+  method: SYSTEM_CALL.loadDatatokens,
+  params: [
+    '0x6293BA7114867Ee79751d36376B969168DFD01d2',
+    '0xcD743313EA468bb7FCf075cfe7cBcB3880C2674E',
+  ],
+});
+```
+
+## Parameters
+
+- `datatokenIds`: `Array<string>` - a list of data token ids.
+
+## Returns
+
+Data token info in an array.
+
+Example:
+
+```json
+[
+  {
+    "address": "0xc4bc152f88b23c5cBD26d7447706C7A55bB953c0",
+    "collect_info": {
+      "collect_nft_address": "",
+      "sold_list": [],
+      "sold_num": "0",
+      "total": "100",
+      "price": {
+        "amount": "0.0001",
+        "currency": "WMATIC",
+        "currency_addr": "0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889"
+      }
+    },
+    "content_uri": "ipfs://bafkreiajiwbqrh5iozwoqa4vx5cq4xjnnjpisklkvfv6jkfofkcpluswbe",
+    "owner": "0x13a6D1fe418de7e5B03Fb4a15352DfeA3249eAA4",
+    "source": "0x60Ae865ee4C725cd04353b5AAb364553f56ceF82",
+    "created_at": "2023-11-01 21:09:17.406356 +0800 CST",
+    "chain_id": "80001",
+    "end_timestamp": null
+  },
+  {
+    "address": "0xd5a9fA9B780a92091B789e57B794c1dd86F3D134",
+    "collect_info": {
+      "collect_nft_address": "0xea1D2a0fDA709f73a5191788Bafc812052cdfDA8",
+      "sold_list": [
+        {
+          "owner": "0xd10d5b408A290a5FD0C2B15074995e899E944444",
+          "token_id": "1"
+        }
+      ],
+      "sold_num": "1",
+      "total": "100",
+      "price": {
+        "amount": "0.0001",
+        "currency": "WMATIC",
+        "currency_addr": "0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889"
+      }
+    },
+    "content_uri": "ipfs://bafkreibvi4wnkfuj4xxjaewxgrx67mmep3czk3alubc32ihpsiltb45tbe",
+    "owner": "0xd10d5b408A290a5FD0C2B15074995e899E944444",
+    "source": "0x4fbffF20302F3326B20052ab9C217C44F6480900",
+    "created_at": "2023-12-07 13:41:18.267017 +0800 CST",
+    "chain_id": "80001",
+    "end_timestamp": "4722366482869645213695"
+  },
+  ...
+]
+```

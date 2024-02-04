@@ -1,0 +1,31 @@
+# checkCapability
+
+Check if your application has been authorized
+
+## Usage
+```javascript
+await connector.runOS({
+  method: SYSTEM_CALL.checkCapability,
+  params: {
+    appId,
+  },
+});
+```
+
+## Parameters
+```js
+{
+  app: string;
+  resource?: RESOURCE;
+}
+```
+- `app`: `string` - which app is asking for authorization.
+- OPTIONAL - `resource`: `RESOURCE` - Resource to give access to the capability.
+  ```js
+  enum RESOURCE {
+    CERAMIC,
+  }
+  ```
+
+## Returns
+`boolean` - true if the application has been authorized, false otherwise

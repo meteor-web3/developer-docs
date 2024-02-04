@@ -1,0 +1,114 @@
+# getProvider
+
+Get Ethereum Provider.
+
+## Usage
+
+```javascript
+await connector.getProvider();
+```
+
+## Parameters
+
+void
+
+## Returns
+
+Return an Ethereum Provider object.
+
+## Examples
+
+With the Ethereum Provider, you can call JavaScript API specified in EIP-1193,
+similar to calling MetaMask functions via `window.ethereum`. For example,
+
+### 1. Send a transaction
+
+```js
+const provider = await connector.getProvider();
+await provider.request({
+  method: 'eth_sendTransaction',
+  params: [
+    {
+      from: address, // The user's active address.
+      to: address, // Required except during contract publications.
+      value: '0xE8D4A50FFD41E', // Only required to send ether to the recipient from the initiating external account.
+    },
+  ],
+});
+```
+
+### 2. Switch chain
+
+```js
+const provider = await connector.getProvider();
+await provider.request({
+  method: 'wallet_switchEthereumChain',
+  params: [{ chainId: '0x61' }], // chainId must be in hexadecimal numbers
+});
+```
+
+### 3. Sign a message
+
+```js
+const provider = await connector.getProvider();
+await provider.request({
+  method: 'personal_sign',
+  params: [address, 'test'],
+});
+```
+
+or
+
+```js
+const provider = await connector.getProvider();
+await provider.request({
+  method: 'eth_signTypedData_v4',
+  params: [
+    address,
+    JSON.stringify({
+      domain: {
+        name: 'EPNS COMM V1',
+        chainId: 80001,
+        verifyingContract: '0xb3971BCef2D791bc4027BbfedFb47319A4AAaaAa',
+      },
+      primaryType: 'Data',
+      types: {
+        Data: [
+          {
+            name: 'data',
+            type: 'string',
+          },
+        ],
+        EIP712Domain: [
+          {
+            name: 'name',
+            type: 'string',
+          },
+          {
+            name: 'chainId',
+            type: 'uint256',
+          },
+          {
+            name: 'verifyingContract',
+            type: 'address',
+          },
+        ],
+      },
+      message: {
+        data: '2+{"notification":{"title":"Push Title Hello","body":"Good to see you bodies"},"data":{"acta":"","aimg":"","amsg":"Payload Push Title Hello Body","asub":"Payload Push Title Hello","type":"1"},"recipients":"eip155:5:0x6ed14ee482d3C4764C533f56B90360b767d21D5E"}',
+      },
+    }),
+  ],
+});
+```
+
+### 4. Call a smart contract function
+
+```js
+import Web3 from 'web3';
+const provider = await connector.getProvider();
+// Create Web3 instance
+const web3 = new Web3(provider); // use the provider from meteor.
+const contract = new web3.eth.Contract(ABI, ADDRESS);
+...
+```

@@ -1,0 +1,46 @@
+# loadDatatokensCreatedBy
+
+Get the list of data tokens by creator address.
+
+## Usage
+
+```js
+await connector.runOS({
+  method: SYSTEM_CALL.loadDatatokensCreatedBy,
+  params: address,
+});
+```
+
+## Parameters
+
+- `address`: `string` - wallet address of data token creator.
+
+## Returns
+
+List of data tokens.
+
+Example:
+
+```json
+[
+    {
+        "address": "0xcD743313EA468bb7FCf075cfe7cBcB3880C2674E",
+        "collect_info": {
+            "collect_nft_address": "",
+            "sold_list": [],
+            "sold_num": "0",
+            "total": "100",
+            "price": {
+                "amount": "0.0001",
+                "currency": "WMATIC",
+                "currency_addr": "0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889"
+            }
+        },
+        "content_uri": "ipfs://bafkreig3d7pcmj7qaipfjj3nf5cdsqlbeon3jots2ax5jjv4yomwrlinu4",
+        "owner": "0xb4D93398f6F3FB5EE4436D1aE93b32d65693a799",
+        "source": "0x6431eBEfE13E87bde75585C6fd1ea5596161732f",
+        "created_at": "2023-11-02 14:24:38.107544 +0800 CST"
+    },
+    ...
+]
+```

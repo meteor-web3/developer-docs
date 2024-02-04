@@ -1,0 +1,89 @@
+import { Callout } from 'nextra-theme-docs';
+
+# createActionFile
+
+Create a public or encrypted action file.
+
+## Usage
+
+```js
+await connector.runOS({
+  method: SYSTEM_CALL.createActionFile,
+  params: {
+    folderId,
+    action: {
+      actionType: ActionType.LIKE,
+      comment: 'I like it!',
+      isRelationIdEncrypted: false,
+      isCommentEncrypted: false,
+    },
+    relationId: indexFileId,
+    fileName: 'like',
+  },
+});
+```
+
+## Parameters
+
+- OPTIONAL - `folderId`: `string` - the id of the target folder to put the action file in, if not specified, the action file will be put in the default folder declared in `create-meteor-app`.
+- `action` - `object` - the content of the action file. Here is an example:
+
+  - `actionType` - `ActionType` - type of the action, the enum is defined as:
+    ```js
+    enum ActionType {
+        LIKE = "LIKE",
+        COMMENT = "COMMENT",
+        SECRET_CLICK = "SECRET_CLICK",
+        UNLOCK = "UNLOCK",
+        RECEIVE = "RECEIVE"
+    }
+    ```
+  - `comment` - `string` - the comment content
+  - `isRelationIdEncrypted` - `boolean` - whether the relation id is encrypted
+  - `isCommentEncrypted` - `boolean` - whether the comment is encrypted
+
+- `relationId` - `string` - the id of the target index file that this action links to
+- `fileName` - `string` - the name of the action file
+
+## Returns
+
+```js
+{
+  newFile: MirrorFile;
+  currentFolder: StructuredFolder;
+  allFolders: StructuredFolderRecord;
+}
+```
+
+```json
+{
+  "newFile": {
+    "fsVersion": "0.11",
+    "action": {
+      "actionType": "LIKE",
+      "comment": "I like it!",
+      "isRelationIdEncrypted": false,
+      "isCommentEncrypted": false
+    },
+    "relationId": "kjzl6kcym7w8ya3kyamskljmo181t6z3vz6px0w90c76ea3m28g994t58341ijt",
+    "fileName": "like",
+    "fileType": 0,
+    "createdAt": "2023-11-02T09:03:10.480Z",
+    "updatedAt": "2023-11-02T09:03:10.480Z",
+    "fileId": "kjzl6kcym7w8y8cirfy9639ohwdv5mggb7zbvwtdnw8b0sbpmaorewq2ibasdm2",
+    "external": {
+      ...
+      "fileName": "update the file",
+      ...
+    }
+  },
+  "currentFolder": {
+    ...
+  },
+  "allFolders": {
+    ...
+  }
+}
+```
+
+The `external` field is the index file that the action file links to.

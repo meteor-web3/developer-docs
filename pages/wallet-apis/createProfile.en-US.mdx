@@ -1,0 +1,27 @@
+import { Callout } from 'nextra-theme-docs';
+
+# createProfile
+
+Claim a [Lens Profile](https://docs.lens.xyz/docs/profile) NFT on mumbai testnet.
+
+<Callout type="info">You need a Lens Profile to monetize data.</Callout>
+
+## Usage
+
+```js
+await connector.createProfile(handle);
+```
+
+## Parameters
+
+- `string` - handle of a Lens Profile NFT
+
+## Returns
+
+`string` - Lens Profile ID.
+
+```text
+0x02d4
+```
+
+The ID will be used in `monetizeFile`.

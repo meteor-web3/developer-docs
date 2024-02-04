@@ -1,0 +1,73 @@
+import { Callout } from 'nextra-theme-docs';
+
+# Step 3: Customize data models
+
+A data model is a conceptual representation of the data structure that will be used under your app.
+For example, if you are building a blog app, you might have a `blog` model that represents a blog article.
+If you are building a social network, you might have a `profile` model that represents a user profile.
+Data models should be defined in a GraphQL schema file. For example, we define a post model in `post.graphql`:
+
+```graphql
+type post @createModel(accountRelation: LIST, description: "post") {
+  author: DID! @documentAccount # DID of the user who created this post
+  version: CommitID! @documentVersion
+  appVersion: String! @string(maxLength: 100)
+  text: String @string(maxLength: 300000000) # text content of the post
+  images: [String] @list(maxLength: 10000000) @string(maxLength: 2000000) # images of the post
+  videos: [String] @list(maxLength: 10000000) @string(maxLength: 2000000) # videos of the post
+  options: String @string(maxLength: 300000000)
+  createdAt: DateTime! # time when the post is created
+  updatedAt: DateTime! # time when the post is updated
+}
+```
+
+This represents a post of a web3 social app. A post may contain text, images, and video content.
+
+The `@createModel` directive is used to tell Meteor to create a data model for this type.
+The `@documentAccount` directive is used to tell Meteor to create a DID for this type.
+The `@documentVersion` directive is used to tell Meteor to create a version for this type.
+
+`profile` and `post` are here to demonstrate how to define a data model.
+You can define your own data models under the `models` folder.
+
+For example, if you want to add `comments` to the `post`, you can modify the `post.graphql` like this:
+
+```graphql
+type post @createModel(accountRelation: LIST, description: "post") {
+  author: DID! @documentAccount
+  version: CommitID! @documentVersion
+  appVersion: String! @string(maxLength: 100)
+  text: String @string(maxLength: 300000000)
+  images: [String] @list(maxLength: 10000000) @string(maxLength: 2000000)
+  videos: [String] @list(maxLength: 10000000) @string(maxLength: 2000000)
+  options: String @string(maxLength: 300000000)
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  comments: [String] @list(maxLength: 10000000) @string(maxLength: 2000000)
+}
+```
+
+Here is another example of a `blog` model:
+
+```graphql
+type blog @createModel(accountRelation: LIST, description: "post") {
+  author: DID! @documentAccount
+  version: CommitID! @documentVersion
+  title: String @string(maxLength: 100)
+  content: String @string(maxLength: 300000000)
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+```
+
+`author` and `version` are required fields for all data models.`author` is the DID of the user who created the data.
+`version` is used to maintain the update history of the data. These 2 fields will be used by Meteor. You should NOT modify them and do NOT
+need to set them manually when creating a stream.
+
+Data models define the important data types in an application. You can use the data models to create data streams and access the data resources.
+Creating a data stream under the corresponding model means creating structured data in the application. For example, creating a data stream using the [`createIndexFile`](/file/createIndexFile) method under the `post` model means publishing a tweet on a social network.
+
+<Callout>
+  Models under `fs` folder are special models. They are used by Meteor to
+  fulfill the encrypted file system. You should NOT modify or delete them.
+</Callout>

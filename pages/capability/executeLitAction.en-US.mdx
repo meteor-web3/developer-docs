@@ -1,0 +1,51 @@
+# executeLitAction
+
+Execute [Lit Actions](https://developer.litprotocol.com/LitActions/intro) through our SDK.
+
+Lit Actions are JavaScript programs that can be used to specify signing and authentication logic for PKPs.
+
+## Usage
+
+```javascript
+const LIT_ACTION_SIGN_CODE = `(async () => {
+    const sigShare = await Lit.Actions.signEcdsa({ toSign, publicKey , sigName });
+    Lit.Actions.setResponse({response: JSON.stringify({sigShare})});
+})();`;
+const executeJsArgs = {
+  code: LIT_ACTION_SIGN_CODE,
+  jsParams: {
+    toSign: [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100],
+    publicKey: pkpWallet.publicKey,
+    sigName: 'sig1',
+  },
+};
+const res = await connector.runOS({
+  method: SYSTEM_CALL.executeLitAction,
+  params: executeJsArgs,
+});
+```
+
+## Parameters
+
+For a detailed introduction to Lit Actions parameters, please refer to the [Lit Actions documentation](https://developer.litprotocol.com/LitActions/intro).
+
+## Returns
+
+```json
+{
+  "signatures": {
+    "sig1": {
+      "r": "918235d4eacbf43b66f126117c9f27ddb1c297908c49186c7d9330b1867efeb7",
+      "s": "60a6775e9568c49afd00c6dd688f404f22ddc612aaf5e9413e79b5523f1e4050",
+      "recid": 0,
+      "signature": "0x918235d4eacbf43b66f126117c9f27ddb1c297908c49186c7d9330b1867efeb760a6775e9568c49afd00c6dd688f404f22ddc612aaf5e9413e79b5523f1e40501b",
+      "publicKey": "043860195f99bbad5defe34a537541a9ff535aa3b47a7696e4705989225dc6741168b9b4398ad07e7136645f014f2e648b83ef0fd4214ce0f72ec38e79bbd750f4",
+      "dataSigned": "48656c6c6f20576f726c64"
+    }
+  },
+  "response": {
+    "sigShare": "success"
+  },
+  "logs": ""
+}
+```

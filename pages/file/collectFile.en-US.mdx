@@ -1,0 +1,82 @@
+import { Callout } from 'nextra-theme-docs';
+
+# collectFile
+
+Collect a monetized file, by paying for it and minting an NFT as access certificate.
+
+## Usage
+
+```js
+await connector.runOS({
+  method: SYSTEM_CALL.collectFile,
+  params: indexFileId,
+});
+```
+
+## Parameters
+
+- `indexFileId`: `string` - The index file id if you are unlocking a file
+
+## Returns
+
+```js
+{
+  fileContent: {
+    file: Omit<MirrorFile, "fileKey" | "content" | "external">;
+    content: FileContent | string;
+  };
+}
+```
+
+<Callout>
+  This function will send a transaction to mint an NFT, currently on Mumbai
+  (Polygon Testnet).
+</Callout>
+
+Example:
+
+```json
+{
+  "fileContent": {
+    "file": {
+      "fileId": "kjzl6kcym7w8y8dhk0rihz71kvnrk3anvwafy10ef6pwf6v7bdunqrsthj0c3fb",
+      "fsVersion": "0.11",
+      "contentId": "kjzl6kcym7w8y8mslp034q2jfdsru1lv2hpyqau87hw1ad9nmm1fshp6zrz5ntp",
+      "contentType": {
+        "resource": "CERAMIC",
+        "resourceId": "kjzl6hvfrbw6catek36h3pep09k9gymfnla9k6ojlgrmwjogvjqg8q3zpybl1yu"
+      },
+      "fileName": "create a file",
+      "fileType": 2,
+      "accessControl": {
+        "encryptionProvider": {
+          "protocol": "Lit",
+          "encryptedSymmetricKey": "22e442d2e7519adf2f91eb882652d4b2f538e3782c8370f7bf85740961768491b41570f2715e612ba17e67995d511b02384b520f0a7427caef05d32e20125871510ffd19e44f486a0cba2a091abbf3163a07dc5f7094234816ad438f3c3ee1b2cf220b9c4dad3579df26cd270fb1ccb66fa478ee03d4e3572231e0e71d7c206f0000000000000020404bd2c17ea2e861b067d7f0d752744a8f73793447eca2d88f999808041ea1880cd0f49f0833450956089610765b9aa6",
+          "decryptionConditions": [
+            ...
+          ],
+          "decryptionConditionsType": "UnifiedAccessControlCondition"
+        },
+        "monetizationProvider": {
+          "protocol": "Profileless",
+          "chainId": 80001,
+          "datatokenId": "0x906343b9F2Aa3FCcaBB8110AfDE29FA54e75775f"
+        }
+      },
+      "createdAt": "2023-11-02T07:35:32.395Z",
+      "updatedAt": "2023-11-02T07:36:27.150Z"
+    },
+    "content": {
+      "text": "some secret text",
+      "images": [
+        "some secret image"
+      ],
+      "videos": [],
+      "createdAt": "2023-11-02T07:35:23.593Z",
+      "encrypted": "{\"text\":false,\"images\":false,\"videos\":false}",
+      "updatedAt": "2023-11-02T07:36:15.042Z",
+      "modelVersion": "0.0.1"
+    }
+  }
+}
+```

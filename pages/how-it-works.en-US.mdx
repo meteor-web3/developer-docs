@@ -1,0 +1,67 @@
+# How it works
+
+This section will work you through a brief overview of what web3 infras we are using and how they work together.
+
+## OS Composition
+
+Meteor is similar to modern operating systems such as Linux, consisting of four important components
+
+- `kernel`, manages the underlying resources and ensures system stability & security
+- `system calls`, provides a set of APIs for applications to interact with the kernel
+- `protocol drivers`, an open architecture for 3rd-party protocol integration
+- `user interface`, UI for users to interact with the system, manage their data, and use applications
+
+<img
+  src="/images/how-it-works/kernel.png"
+  width="80%"
+  className="mx-auto my-2.5"
+/>
+
+## Plug into Meteor
+
+Meteor integrates and coordinates many protocols such as [Ceramic](https://ceramic.network/),
+[Lit Protocol](https://litprotocol.com/), [Lens Protocol](https://lens.xyz/), [Filecoin](https://fvm.filecoin.io/) etc.
+
+<img src="/images/how-it-works/1.png" width="80%" className="mx-auto my-2.5" />
+
+The encrypted file system is able to carry all files within Meteor over different applications by linking data streams on ceramic.
+Every time a data stream is created, Meteor will automatically create a corresponding file stream,
+bind the data stream to it and save it to the file system. Every byte of data is part of a file in Meteor.
+Users can manage their data via the file system.
+
+On top of the file stream, Meteor fulfills programmability like `access control` by
+integrating with [Lit Protocol](https://litprotocol.com/), allowing applications to build features like
+`permission management` and `data sharing` flexibly.
+
+## Signature matters
+
+Meteor, along with other latest data networks are building with [EIP-4361](https://eips.ethereum.org/EIPS/eip-4361)
+and [EIP-5573](https://eips.ethereum.org/EIPS/eip-5573). These proposals are designed to standardize the way of user creating
+identities, authenticating with applications, and managing data resources. In this context, `Sign-In with Ethereum` signature
+is a complete proof of access rights to data resources. Therefore, it is important to keep the signature safe and secure.
+For if the signature is stolen, the attacker can access the data resources and do all the bad things.
+So we are building Meteor to take the duty of keeping everything safe and beyond the control of malicious applications.
+
+## How do we ensure security?
+
+Meteor provides isolated data environments for each application. Each application has its own independent file system and
+scope of which data resources it can access. This scope will be specified clearly when the user is signing in.
+
+<img src="/images/why/1.png" width="80%" className="mx-auto my-2.5" />
+
+User data will first be encrypted before putting in the file system. In other words, the applications will never see the raw data
+for all user data are encrypted.
+
+When an application is requesting access to a data resource, the user will be notified and asked for permission.
+Specifically, the application will request the user to sign a message and declare which data resources it is accessing within that message.
+
+<img src="/images/why/2.png" width="40%" className="mx-auto my-2.5" />
+
+Before asking users to sign this message, the scope(**_A_**) and the message(**_B_**) will be checked first to ensure that **_B_** is a subset of **_A_**.
+If the request is valid, the application will be granted access to the data resource. Otherwise, the request will be rejected.
+
+In summary, Meteor is able to protect data security by:
+
+1. Isolating data environments for each application
+2. Encrypting user data before putting it in the file system
+3. Checking the scope of data access requests to ensure the validity
