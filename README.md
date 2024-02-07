@@ -1,6 +1,6 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./public/logos/logo.png"/>
+    <source media="(prefers-color-scheme: dark)" srcset="./public/logos/logo-full.png"/>
     <img alt="livepeer logo" src="./public/logos/logo.png" width="auto" height="150"/>
   </picture>
 </p>
