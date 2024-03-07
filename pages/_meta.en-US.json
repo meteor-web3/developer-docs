@@ -10,14 +10,11 @@
     "type": "separator",
     "title": "Products"
   },
-  "meteor-cloud": {
-    "title": "Meteor Cloud"
-  },
   "meteor-wallet": {
     "title": "Meteor Wallet"
   },
-  "dapp-store": {
-    "title": "DApp Store"
+  "meteor-cloud": {
+    "title": "Meteor Cloud"
   },
   "-- Build": {
     "type": "separator",
@@ -38,12 +35,6 @@
   },
   "wallet-adaptor": {
     "title": "Wallet Adaptor"
-  },
-  "dweb-toolkits": {
-    "title": "DWeb Toolkits"
-  },
-  "code-examples": {
-    "title": "Code Examples"
   },
   "why": {
     "title": "Why Meteor?",
