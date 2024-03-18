@@ -16,25 +16,6 @@ The wallet is designed to protect user signatures and resources authenticated vi
   className="mx-auto my-2.5"
 />
 
-## Compatible with other wallets
-
-Meteor Wallet introduces a new `WalletsInWallet` architecture for cryptocurrency wallets. This enables users to plug in and connect with Meteor using any wallet they already have installed.
-It eases the evolution of crypto wallets from just token management to managing both money and personal data.
-
-Meteor Wallet works as an aggregator for normal cryptocurrency wallets like MetaMask, Coinbase, etc. It provides a complete portfolio view and allows you to trade across all assets and connect to any decentralized application with one wallet.
-
-Meanwhile, Meteor Wallet brings new data functionality to all existing wallets. By plugging into Meteor Wallet, your current wallet gains abilities like decentralized data storage, data monetization, data unions, and more.
-
-The `WalletsInWallet` architecture creates a seamless experience for users. They can continue using their preferred wallet while unlocking the full potential of web3 data management offered by Meteor.
-
-We will also further optimise the ease of use and functionality of the wallet by integrating Account Abstraction in the future.
-
-<img
-  src="/images/introduction/wallets.png"
-  width="75%"
-  className="mx-auto my-2.5"
-/>
-
 ## Secure resources
 
 Meteor Wallet implements safe access controls for resources based on Ethereum Improvement Proposals EIP-4361 (Sign-In with Ethereum) and EIP-5573 (ReCaps).
@@ -69,16 +50,37 @@ Thus users stay in control of their resources while being able to safely leverag
   className="mx-auto my-2.5"
 />
 
-## DApp authenticator
+## 3 ways to sign in
 
-To prevent malicious applications from disguising themselves and obtaining unauthorized access to a user's resources, Meteor Wallet also functions as an application authenticator.
+Meteor wallet enables 3 methods to sign in with your wallet address. They are `Sign-In with Extension`, `Sign-In with Snap`, and `Sign-In with Web`.
 
-We maintain a decentralized application registry that provides triple assurance that any app a user connects with is trusted and authorized.
-This verification happens through:
+### Browser extension
 
-- The application's domain name - Meteor Wallet checks that the domain matches the registered name for that app.
-- The application's admin key - Each registered app has a unique admin key that Meteor verifies is valid and approved.
-- The user's signature - The user signs a message authorizing the specific app domain when first connecting to the app.
+Meteor lives as a browser extension like other crypto wallets. This is the most secure way to sign in with your wallet, for all keys, signatures, and credentials are encrypted and stored locally in your browser.
 
-Together, these three authentication mechanisms ensure users only connect to legitimate applications.
-Before granting any access permissions, Meteor Wallet rigorously validates both the user's approval and the application's registered identity.
+<img
+  src="/images/introduction/wallets.png"
+  width="75%"
+  className="mx-auto my-2.5"
+/>
+
+### MetaMask snap
+
+Meteor also runs in your MetaMask as a snap. After installation, you can directly access your data wallet via MetaMask.
+
+<img
+  src="/images/introduction/snap.png"
+  width="75%"
+  className="mx-auto my-2.5"
+/>
+
+### Web
+
+Web auth is the most seemless & smooth way to sign in. When signing in, an isolated iframe generates a keypair with 128 bits of entropy chosen at random, and the private key is never persisted anywhere so only the user can access it.
+(This featured is powered by [privy](https://www.privy.io/)).
+
+<img
+  src="/images/introduction/web.png"
+  width="75%"
+  className="mx-auto my-2.5"
+/>
