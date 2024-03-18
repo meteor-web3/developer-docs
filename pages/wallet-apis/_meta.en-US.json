@@ -23,18 +23,6 @@
     "description": "",
     "href": "/wallet-apis/getProvider"
   },
-  "createProfile": {
-    "title": "createProfile",
-    "icon": "",
-    "description": "",
-    "href": "/wallet-apis/createProfile"
-  },
-  "getProfiles": {
-    "title": "getProfiles",
-    "icon": "",
-    "description": "",
-    "href": "/wallet-apis/getProfiles"
-  },
   "getDatatokenBaseInfo": {
     "title": "getDatatokenBaseInfo",
     "icon": "",

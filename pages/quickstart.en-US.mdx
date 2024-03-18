@@ -15,16 +15,6 @@ create, load, update and monetize a file.
 
 ## Prerequisites
 
-### Install Meteor wallet (Recommanded)
-
-Meteor Wallet is a Chrome browser extension. We need to make sure it's installed and
-it's updated to the latest version before we proceed with the development.
-
-[Download on chrome store](https://chrome.google.com/webstore/detail/meteor/kcigpjcafekokoclamfendmaapcljead)
-
-![quickstart-1](/images/sdk/chrome-store.png)
-You may sign in with MetaMask, WalletConnect, Coinbase Wallet or Particle Social Account and create a new identity.
-
 ### Install JS SDK
 
 ```bash
@@ -42,27 +32,9 @@ import {
   MeteorWebProvider,
 } from '@meteor-web3/connector';
 
-/** Initialize the meteor connector class object with MeteorWalletProvider*/
-const connector = new Connector(new MeteorWalletProvider());
-
 /** Or initialize the meteor connector class object with MeteorWebProvider*/
 const connector = new Connector(new MeteorWebProvider());
 ```
-
-<Callout type="info">
-If you are using the SDK in a `Vite` project, you may need to add the following to your `vite.config.ts` file:
-
-```ts
-export default defineConfig({
-  ...
-  define: {
-    'process.env': {},
-  },
-  ...
-});
-```
-
-</Callout>
 
 ## Step 2: Connect with user wallet
 
@@ -116,10 +88,6 @@ enum WALLET {
   PARTICLE = "Particle"
 }
 ```
-
-if not specified (pass in no parameters), the function will open an option page for users to choose which wallet to use.
-
-<img src="/images/sdk/option-page.png" className="mx-auto my-2.5" width="90%" />
 
 ## Step 3: Create capability
 
@@ -377,3 +345,5 @@ await connector.runOS({
   params: indexFileId,
 });
 ```
+
+s

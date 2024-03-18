@@ -3,8 +3,15 @@
     "title": "Home",
     "type": "page"
   },
-  "overview": {
+  "-- Overview": {
+    "type": "separator",
+    "title": "Overview"
+  },
+  "introduction": {
     "title": "Introduction"
+  },
+  "quickstart": {
+    "title": "Quickstart"
   },
   "-- Products": {
     "type": "separator",
@@ -20,9 +27,6 @@
     "type": "separator",
     "title": "Build"
   },
-  "key-concepts": {
-    "title": "Key Concepts"
-  },
   "cli-and-tools": {
     "title": "Create Meteor App"
   },
@@ -32,9 +36,6 @@
   },
   "meteor-connector": {
     "title": "Meteor Connector"
-  },
-  "wallet-adaptor": {
-    "title": "Wallet Adaptor"
   },
   "why": {
     "title": "Why Meteor?",
@@ -48,7 +49,7 @@
     "title": "Wallet APIs"
   },
   "dapp-store-apis": {
-    "title": "DApp Store APIs"
+    "title": "DApp APIs"
   },
   "-- System-Calls": {
     "type": "separator",

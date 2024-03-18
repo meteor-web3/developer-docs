@@ -7,8 +7,13 @@ Connect wallet.
 1. Connect with built-in wallets supported by Meteor Wallet
 
 ```js
-import { WALLET } from '@meteor-web3/connector';
+import {
+  Connector,
+  WALLET,
+  MeteorWalletProvider,
+} from '@meteor-web3/connector';
 
+const connector = new Connector(new MeteorWalletProvider());
 const pkh = await connector.connectWallet({
   wallet: WALLET.METAMASK,
 });
@@ -17,8 +22,13 @@ const pkh = await connector.connectWallet({
 2. Pass in any [Ethereum Provider](https://eips.ethereum.org/EIPS/eip-1193) to use
 
 ```js
-import { WALLET } from '@meteor-web3/connector';
+import {
+  Connector,
+  WALLET,
+  MeteorWalletProvider,
+} from '@meteor-web3/connector';
 
+const connector = new Connector(new MeteorWalletProvider());
 const pkh = await connector.connectWallet({
   provider: window.ethereum,
 });
@@ -49,6 +59,7 @@ Promise<{
     address: string;
     chain: Chain;
     wallet: WALLET;
+    userInfo?: object;
 }>
 ```
 
