@@ -71,10 +71,14 @@
     "title": "Appendix"
   },
   "how-it-works": {
-    "title": "How it works?"
+    "title": "How it works?",
+    "type": "hidden"
   },
-  "support": {
-    "title": "Support"
+  "faq": {
+    "title": "FAQ"
+  },
+  "contact": {
+    "title": "Contact"
   },
   "Participate": {
     "title": "Participate",
