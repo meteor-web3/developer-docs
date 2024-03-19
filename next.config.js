@@ -50,7 +50,7 @@ const config = {
     return [
       {
         source: '/',
-        destination: '/overview',
+        destination: '/introduction',
         permanent: false,
       },
       {
