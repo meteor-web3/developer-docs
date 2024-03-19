@@ -49,6 +49,11 @@ const config = {
   async redirects() {
     return [
       {
+        source: '/',
+        destination: '/overview',
+        permanent: false,
+      },
+      {
         source: '/video-miners/getting-started',
         destination: '/guides/orchestrating/get-started',
         permanent: false,
