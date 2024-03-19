@@ -57,7 +57,7 @@ const config: DocsThemeConfig = {
     light: 212,
   },
   footer: {
-    text: `MIT ${new Date().getFullYear()} © Ownership Labs.`,
+    text: `MIT ${new Date().getFullYear()} © Meteor Project.`,
   },
   logo() {
     // eslint-disable-next-line react-hooks/rules-of-hooks
