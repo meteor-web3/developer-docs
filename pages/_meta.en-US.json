@@ -20,40 +20,59 @@
   "meteor-wallet": {
     "title": "Meteor Wallet"
   },
+  "secure-resources": {
+    "title": "Secure resources"
+  },
+  "dapp-authenticator": {
+    "title": "DApp authenticator"
+  },
   "meteor-cloud": {
     "title": "Meteor Cloud"
+  },
+  "-- Dapp Store": {
+    "type": "separator",
+    "title": "Dapp Store"
+  },
+  "dapp-store": {
+    "title": "Dapp Store"
   },
   "-- Build": {
     "type": "separator",
     "title": "Build"
   },
+  "key-concepts": {
+    "title": "Key Concepts"
+  },
   "cli-and-tools": {
     "title": "Create Meteor App"
+  },
+  "data-tokenization": {
+    "title": "Data Tokenization"
   },
   "sdk": {
     "title": "SDKs",
     "type": "hidden"
   },
   "meteor-connector": {
-    "title": "Meteor Connector"
+    "title": "Meteor Connector",
+    "type": "hidden"
+  },
+  "code-examples": {
+    "title": "Code Examples"
   },
   "why": {
     "title": "Why Meteor?",
     "type": "hidden"
   },
-  "-- API": {
+  "-- System-Calls": {
     "type": "separator",
-    "title": "API"
+    "title": "System Calls"
   },
   "wallet-apis": {
     "title": "Wallet APIs"
   },
-  "dapp-store-apis": {
-    "title": "DApp APIs"
-  },
-  "-- System-Calls": {
-    "type": "separator",
-    "title": "System Calls"
+  "dapp-apis": {
+    "title": "Dapp APIs"
   },
   "capability": {
     "title": "Capability"
@@ -65,10 +84,11 @@
     "title": "File"
   },
   "data-token": {
-    "title": "Data Token"
+    "title": "Data Token",
+    "type": "hidden"
   },
   "-- Appendix": {
-    "type": "separator",
+    "type": "hidden",
     "title": "Appendix"
   },
   "how-it-works": {
@@ -76,10 +96,12 @@
     "type": "hidden"
   },
   "faq": {
-    "title": "FAQ"
+    "title": "FAQ",
+    "type": "hidden"
   },
   "contact": {
-    "title": "Contact"
+    "title": "Contact",
+    "type": "hidden"
   },
   "Participate": {
     "title": "Participate",

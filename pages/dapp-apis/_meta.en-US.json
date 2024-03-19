@@ -3,12 +3,12 @@
     "title": "getDappTable",
     "icon": "",
     "description": "",
-    "href": "/dapp-store-apis/getDappTable"
+    "href": "/dapp-apis/getDappTable"
   },
   "getDappInfo": {
     "title": "getDappInfo",
     "icon": "",
     "description": "",
-    "href": "/dapp-store-apis/getDappInfo"
+    "href": "/dapp-apis/getDappInfo"
   }
 }
