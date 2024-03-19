@@ -66,3 +66,17 @@ This is done by signing messages that inform the user exactly what access they a
   <img src="/images/introduction/siwe1.png" width="40%" className="mx-auto" />
   <img src="/images/introduction/siwe2.png" width="40%" className="mx-auto" />
 </div>
+
+## DApp authenticator
+
+To prevent malicious applications from disguising themselves and obtaining unauthorized access to a user's resources, Dataverse Wallet also functions as an application authenticator.
+
+We maintain a decentralized application registry that provides triple assurance that any app a user connects with is trusted and authorized.
+This verification happens through:
+
+- The application's domain name - Dataverse Wallet checks that the domain matches the registered name for that app.
+- The application's admin key - Each registered app has a unique admin key that Dataverse verifies is valid and approved.
+- The user's signature - The user signs a message authorizing the specific app domain when first connecting to the app.
+
+Together, these three authentication mechanisms ensure users only connect to legitimate applications.
+Before granting any access permissions, Dataverse Wallet rigorously validates both the user's approval and the application's registered identity.

@@ -21,17 +21,15 @@
     "title": "Meteor Wallet"
   },
   "secure-resources": {
-    "title": "Secure resources"
+    "title": "Secure resources",
+    "type": "hidden"
   },
   "dapp-authenticator": {
-    "title": "DApp authenticator"
+    "title": "DApp authenticator",
+    "type": "hidden"
   },
   "meteor-cloud": {
     "title": "Meteor Cloud"
-  },
-  "-- Dapp Store": {
-    "type": "separator",
-    "title": "Dapp Store"
   },
   "dapp-store": {
     "title": "Dapp Store"

@@ -8,16 +8,12 @@ It visualizes your data as files and monetize them as on-chain assets.
 
 ## Self-Sovereignty
 
-Meteor Cloud is a personal cloud drive where you truly own your data.
-Traditional cloud storage is centralised, with user data stored and calculated on someone else's servers.
-Meteor Cloud is built upon decentralized data networks, where the user has the highest sovereignty over the data in the cloud drive. This sovereignty is reflected in the following aspects:
+Traditional clouds store their data on centralized servers, which is lack of transparency and sovereignty. To address this, Meteor Cloud utilizes DataverseOS to manage decentralized data networks, ensuring users have true ownership over personal data.
+Specifically, data is encrypted before sending to servers, and only users can decrypt with wallet-based authentication.
+Data sovereignty is also reflected in following aspects:
 
-1. The user decides who can access which data in the cloud drive
-2. The user can freely create, delete and update their own data, and even customize the functions they want through our SDK
-3. The user can profit from it instead of big companies profiting from it.
-
-The product form of Meteor Cloud is a Web Native File System(WNFS). It's an encrypted file system to save your
-digital footprints - creations, interests, contribution, social interactions, and more.
+1. User decides who can access specific data in the encrypted cloud
+2. User can profit from data instead of big companies profiting from it.
 
 <img
   src="/images/introduction/finder.png"
@@ -28,9 +24,10 @@ digital footprints - creations, interests, contribution, social interactions, an
 ## Hyper storage over applications
 
 Meteor Cloud is more than storage, it is also an open platform for application development.
-By providing SDKs to developers, we share the decentralized, secure, private, user sovereign storage capabilities of Meteor Cloud with various decentralized applications.
-For example, a social app can store user profiles, social relationships, social content, etc. in Meteor Cloud. While a note-taking tool can choose to save articles to Meteor Cloud.
-With our SDK, everyone can build user-centric data applications on Meteor Cloud.
+With our SDKs, everyone can build user-centric applications to access capabilities of this secure, shared, self-sovereign cloud space.
+For example, a social app can store user profiles, social relationships, social content, etc.
+While a note-taking tool can choose to save articles to Meteor Cloud.
+**One application, One dropbox.**
 
 For users, all the data generated from interacting with different applications will be aggregated in their own encrypted data space,
 no longer scattered across centralized companies' servers like isolated data islands as in the Web2 internet.
@@ -51,40 +48,8 @@ The difference is _Google Drive_ is closed and centralized, while Meteor Cloud w
 
 Meteor Cloud provides programmable file sharing and access control.
 Users can customize file accesses, such as setting whitelists or issuing NFT access tokens.
-Meanwhile, developers can freely program access conditions and rules.
+Developers can apply arbitrary smart contract based access control conditions over encrypted files.
+Anyone who satisfies the conditions can fetch the decryption key shares from DKMS (e.g. Lit Protocol), then access the file content.
 
-At the same time, the native data monetization mechanism allows users to sell access to their data in the form of individual files (Data Token) or collections of files (Data Union).
-Developers can also build data economies on top of this, such as Web3 version of OnlyFans, Substack, data exchange marketplace, etc.
-
-## Why build Meteor Cloud?
-
-If we look back at the history of **Data**, we can divide it into three stages:
-
-### Stage 1: The invention of personal computer
-
-During this time, we interacted with the software on our personal computers,
-and the data generated was stored on our hard disks. At that stage,
-we had actual control over our own data(no one else can steal data from our hard drive).
-However, the challenge was that it wasn't easy for others to access it.
-There was no effective means for sharing and facilitating data flow.
-
-### Stage 2: The emergence of the Internet
-
-Subsequently, the advent of the internet completely transformed the landscape.
-Suddenly, data had the ability to flow seamlessly between various devices,
-granting us access to a plethora of captivating online resources.
-However, this marked the beginning of a shift where we gradually relinquished control over our own data due to the centralized nature of today's internet infrastructure.
-Presently, computing and storage predominantly occur in a centralized manner.
-Consequently, in this stage, we have willingly exchanged our data sovereignty for the unparalleled convenience offered by the internet.
-
-### Stage 3: The rise of Web3 era
-
-Now, let's turn our attention to web3, the internet where data is computed and stored in a decentralized manner.
-The forthcoming generation of personal computers aims to combine the convenience of cloud computing with the security and privacy of a local PC.
-
-In summary, we designed identity computer, the next generation of PC
-– decentralized, cloud-based, and self-controlled.
-Essentially, our system is designed by replacing traditional PC hardware components such as the CPU,
-memory, and hard disk with decentralized infrastructures, including blockchains,
-decentralized storage and databases.
-This change empowers us to restore complete control over data to the users.
+This mechanism also enables flexible data monetization, allowing users to sell personal data and contents for profits.
+Developers can build data marketplaces, tokenized social networks or content platforms on top of it, such as Web3 versions of OnlyFans, Substack etc.

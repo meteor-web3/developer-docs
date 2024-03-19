@@ -1,90 +1,65 @@
-import { Callout } from 'nextra-theme-docs';
+import Card, { Cards } from '@components/meteor/Card';
+import apps from './dapp-store.json';
 
-# Meteor Cloud
+# DApp store
 
-Meteor Cloud is a decentralized, user-centric storage fully controlled by wallet.
-It is an encrypted personal cloud to store your internet footprints - creations, interests, contribution, social interactions, and more.
-It visualizes your data as files and monetize them as on-chain assets.
+## Production of data
 
-## Self-Sovereignty
+Applications are the source of data.
 
-Meteor Cloud is a personal cloud drive where you truly own your data.
-Traditional cloud storage is centralised, with user data stored and calculated on someone else's servers.
-Meteor Cloud is built upon decentralized data networks, where the user has the highest sovereignty over the data in the cloud drive. This sovereignty is reflected in the following aspects:
+Every day, people generate large amounts of data through their online activities. This data falls into two main categories:
 
-1. The user decides who can access which data in the cloud drive
-2. The user can freely create, delete and update their own data, and even customize the functions they want through our SDK
-3. The user can profit from it instead of big companies profiting from it.
+- Content - Includes anything users actively create and share, such as social media posts, photos, videos, and documents.
 
-The product form of Meteor Cloud is a Web Native File System(WNFS). It's an encrypted file system to save your
-digital footprints - creations, interests, contribution, social interactions, and more.
+- Activity Logs - Includes records of users' interactions and behaviors within applications, such as search queries, clicks, views, purchases, and more.
 
-<img
-  src="/images/introduction/finder.png"
-  width="80%"
-  className="mx-auto my-2.5"
+Both types of data originate from people utilizing various online services and applications. The internet is not just a massive file storage system. Rather, it primarily provides access to diverse apps and services that facilitate different aspects of digital life.
+
+These applications effectively serve as interfaces to collect and structure users' data. So most personal data on the internet is generated as a byproduct of users interacting with apps, as opposed to being manually uploaded.
+
+DataverseOS empowers various dapps to provide users with a seamless & rich web3.0 experience.
+
+## Interoperable
+
+Applications built over DApp Store conform to the same set of data schemas (defined as _**Files**_ in DataverseOS).
+This means different apps' data objects are fully composable & interoperable which eases development and enriches user experiences.
+
+For example:
+A social app (Web3 version of Twitter) defines a **User Profile** object containing followers, following, bio, etc. A new dating app can reference the **User Profile** and expand it with extra attributes like age and location.
+This allows inheriting relevant user data from _dTwitter_ while customizing for the dating app's specific needs.
+dReadwise(Web3 version of Readwise) is a bookmarking app and Arazzo is for taking notes. With the shared data schema, Arazzo can let users reference their highlighted snippets from _dRaindrop_ when creating notes in Arazzo.
+
+The unified data schemas allow applications to interoperate and build on each other's data. Users benefit from apps being able to automatically pull and connect relevant pieces of their cross-app data together.
+This creates more seamless experiences without repetitive data entry.
+
+## Ecosystem apps
+
+We have been expanding first-party applications to provide users with essential system functionalities.
+For instance, [Playground](https://dataverse-os.com/playground) is our official social application as a demonstration of decentralized prototype of Twitter,
+enabling users to view, manage, and monetize their cross-application data.
+
+We also provide developers with SDKs and other tools to assist them in developing various applications on the OS,
+empowering data privacy and user sovereignty.
+
+A worldwide developer community is building dapps on DataverseOS. The OS aggregates these high-quality applications
+in one place providing a seamless quick experience for users.
+These applications span across various domains, including decentralized social networking, creator tools, personalized user profiles, news and information, and more.
+
+There has already been a bunch of applications in the dapp store, including:
+
+<Cards
+  num={3}
+  children={apps.map((app, i) => (
+    <Card
+      key={i}
+      title={app.name}
+      description={app.description}
+      img={app.image}
+      href={app.link}
+    />
+  ))}
 />
 
-## Hyper storage over applications
+<div className="h-5"></div>
 
-Meteor Cloud is more than storage, it is also an open platform for application development.
-By providing SDKs to developers, we share the decentralized, secure, private, user sovereign storage capabilities of Meteor Cloud with various decentralized applications.
-For example, a social app can store user profiles, social relationships, social content, etc. in Meteor Cloud. While a note-taking tool can choose to save articles to Meteor Cloud.
-With our SDK, everyone can build user-centric data applications on Meteor Cloud.
-
-For users, all the data generated from interacting with different applications will be aggregated in their own encrypted data space,
-no longer scattered across centralized companies' servers like isolated data islands as in the Web2 internet.
-Meteor Cloud stores all of a user's data in one place, helping users reclaim ownership and value of their online data.
-At the same time, as a common data layer connecting thousands of applications, it provides interoperability between application data, under the premise of system security guarantees and user informed consent authorization.
-
-Just like _Google Drive_ powers _Google Meet_, _Google Docs_ and other Google suite apps, where you can conveniently save recorded videos from Meet or documents from Docs to Drive,
-Meteor Cloud will also provide users with a seamless experience of effortlessly commanding their data.
-The difference is _Google Drive_ is closed and centralized, while Meteor Cloud will be open and decentralized.
-
-<img
-  src="/images/introduction/hyper-storage.png"
-  width="70%"
-  className="mx-auto my-2.5"
-/>
-
-## File sharing & monetization
-
-Meteor Cloud provides programmable file sharing and access control.
-Users can customize file accesses, such as setting whitelists or issuing NFT access tokens.
-Meanwhile, developers can freely program access conditions and rules.
-
-At the same time, the native data monetization mechanism allows users to sell access to their data in the form of individual files (Data Token) or collections of files (Data Union).
-Developers can also build data economies on top of this, such as Web3 version of OnlyFans, Substack, data exchange marketplace, etc.
-
-## Why build Meteor Cloud?
-
-If we look back at the history of **Data**, we can divide it into three stages:
-
-### Stage 1: The invention of personal computer
-
-During this time, we interacted with the software on our personal computers,
-and the data generated was stored on our hard disks. At that stage,
-we had actual control over our own data(no one else can steal data from our hard drive).
-However, the challenge was that it wasn't easy for others to access it.
-There was no effective means for sharing and facilitating data flow.
-
-### Stage 2: The emergence of the Internet
-
-Subsequently, the advent of the internet completely transformed the landscape.
-Suddenly, data had the ability to flow seamlessly between various devices,
-granting us access to a plethora of captivating online resources.
-However, this marked the beginning of a shift where we gradually relinquished control over our own data due to the centralized nature of today's internet infrastructure.
-Presently, computing and storage predominantly occur in a centralized manner.
-Consequently, in this stage, we have willingly exchanged our data sovereignty for the unparalleled convenience offered by the internet.
-
-### Stage 3: The rise of Web3 era
-
-Now, let's turn our attention to web3, the internet where data is computed and stored in a decentralized manner.
-The forthcoming generation of personal computers aims to combine the convenience of cloud computing with the security and privacy of a local PC.
-
-In summary, we designed identity computer, the next generation of PC
-– decentralized, cloud-based, and self-controlled.
-Essentially, our system is designed by replacing traditional PC hardware components such as the CPU,
-memory, and hard disk with decentralized infrastructures, including blockchains,
-decentralized storage and databases.
-This change empowers us to restore complete control over data to the users.
+🚀 Welcome to try our SDK and list your application on our DApp store!
