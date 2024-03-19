@@ -45,7 +45,8 @@
     "title": "Create Meteor App"
   },
   "data-tokenization": {
-    "title": "Data Tokenization"
+    "title": "Data Tokenization",
+    "type": "hidden"
   },
   "sdk": {
     "title": "SDKs",
