@@ -2,51 +2,17 @@ import { Callout } from 'nextra-theme-docs';
 
 # Meteor Wallet
 
-[Meteor Wallet](https://chrome.google.com/webstore/detail/meteor/kcigpjcafekokoclamfendmaapcljead) is a web3 crypto wallet that manages both your finances and personal data.
+[Meteor Wallet](https://chrome.google.com/webstore/detail/meteor/kcigpjcafekokoclamfendmaapcljead) is a web3 wallet that manages both your financial assets and personal data.
 
-It is a fully-featured cryptocurrency wallet with additional functionality. Beyond sending transactions, NFTs, interacting with DeFi, etc. you can also create, visualize, and manage your DATA in a decentralized manner.
+It is not a wallet for cryptocurrency, but a data wallet where you can store, visualize and mange your online data in a decentralized manner.
 
-The wallet acts as a gateway to decentralized data applications (dApps). It prevents malicious applications from stealing your personal data without your consent.
+The wallet acts as a gateway to DataverseOS-powered dApps. It ensures cross-app data security and prevents malicious apps from tampering users' data without consent.
 
-The wallet is designed to protect user signatures and resources authenticated via Sign-In with Ethereum (SIWE).
+Meteor also provides system calls for developers to build data dapps upon various data layers. There are three types of data wallets to integrate - they are Meteor Extension, Meteor Snap and Meteor Web (self-custody, where OS client is running inside the iframe).
 
 <img
   src="/images/introduction/data-wallet.png"
   width="36%"
-  className="mx-auto my-2.5"
-/>
-
-## Secure resources
-
-Meteor Wallet implements safe access controls for resources based on Ethereum Improvement Proposals EIP-4361 (Sign-In with Ethereum) and EIP-5573 (ReCaps).
-
-Sign-In with Ethereum (SIWE) defines how users can create decentralized identities and authenticate with off-chain applications.
-
-ReCaps extends Sign-In with Ethereum's functionality, enabling users to grant informed consent to applications to act on their behalf after signing in.
-
-By combining these two standards, Meteor Wallet enables users to selectively delegate permissions for applications to handle some of their resources.
-This is done by signing messages that inform the user exactly what access they are granting.
-
-<div className="flex">
-  <img src="/images/introduction/siwe1.png" width="40%" className="mx-auto" />
-  <img src="/images/introduction/siwe2.png" width="40%" className="mx-auto" />
-</div>
-
-Signed messages (signatures) serve as credentials that grant access to resources.
-The security of the signature is equivalent to the security of personal data.
-If a user's signatures leak or are compromised, it poses a risk of their web3 resources being stolen or tampered with.
-For example, if an unauthorized party gains access to a user's signatures, they could steal, edit or delete a user's personal data.
-
-Meteor Wallet mitigates this risk by storing & protecting user's signatures locally like How MetaMask protects user private key,
-and selectively denying access to view or export signatures.
-
-We create Meteor Wallet in purpose to shape a standard for maintaining signature security in a decentralized manner.
-We are committed to bringing this security layer to all traditional crypto wallets, making data security a necessary part of wallet services.
-Thus users stay in control of their resources while being able to safely leverage decentralized apps.
-
-<img
-  src="/images/introduction/comparision.png"
-  width="80%"
   className="mx-auto my-2.5"
 />
 
@@ -84,3 +50,19 @@ Web auth is the most seemless & smooth way to sign in. When signing in, an isola
   width="75%"
   className="mx-auto my-2.5"
 />
+
+## Secure resources
+
+We build Meteor wallet with the latest Ethereum Improvement Proposals, including Sign-in-with-Ethereum (SIWE, EIP4361) and Object Capability (ReCaps, EIP-5573). It implements safe, fine-grained resource control.
+
+Sign-In with Ethereum (SIWE) defines how users can create decentralized identities and authenticate with off-chain applications.
+
+ReCaps extends Sign-In with Ethereum's functionality, enabling users to grant informed consent to applications to act on their behalf after signing in.
+
+By combining these two standards, Meteor Wallet enables users to selectively delegate permissions for applications to handle some of their resources.
+This is done by signing messages that inform the user exactly what access they are granting.
+
+<div className="flex">
+  <img src="/images/introduction/siwe1.png" width="40%" className="mx-auto" />
+  <img src="/images/introduction/siwe2.png" width="40%" className="mx-auto" />
+</div>
