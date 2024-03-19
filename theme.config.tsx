@@ -14,7 +14,12 @@ import { DocsThemeConfig, useConfig, useTheme } from 'nextra-theme-docs';
 const Logo = ({ height, width }: { height: number; width: number }) => {
   const { theme } = useTheme();
   return (
-    <div style={{ alignItems: 'center', display: 'flex', gap: '8px' }}>
+    <div
+      style={{ alignItems: 'center', display: 'flex', gap: '8px' }}
+      onClick={(e) => {
+        e.preventDefault();
+      }}
+    >
       <img
         src="https://avatars.githubusercontent.com/u/118692557?s=200&v=4"
         style={{ width: '40px' }}
