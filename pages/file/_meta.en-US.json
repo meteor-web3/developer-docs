@@ -83,37 +83,29 @@
     "title": "monetizeFile",
     "icon": "",
     "description": "",
-    "href": "/file/monetizeFile"
+    "href": "/file/monetizeFile",
+    "type": "hidden"
   },
   "collectFile": {
     "title": "collectFile",
     "icon": "",
     "description": "",
-    "href": "/file/collectFile"
+    "href": "/file/collectFile",
+    "type": "hidden"
   },
   "unlockFile": {
     "title": "unlockFile",
     "icon": "",
     "description": "",
-    "href": "/file/unlockFile"
+    "href": "/file/unlockFile",
+    "type": "hidden"
   },
   "isFileUnlocked": {
     "title": "isFileUnlocked",
     "icon": "",
     "description": "",
-    "href": "/file/isFileUnlocked"
-  },
-  "loadCreatedDatatokenFiles": {
-    "title": "loadCreatedDatatokenFiles",
-    "icon": "",
-    "description": "",
-    "href": "/file/loadCreatedDatatokenFiles"
-  },
-  "loadCollectedDatatokenFiles": {
-    "title": "loadCollectedDatatokenFiles",
-    "icon": "",
-    "description": "",
-    "href": "/file/loadCollectedDatatokenFiles"
+    "href": "/file/isFileUnlocked",
+    "type": "hidden"
   },
   "removeFiles": {
     "title": "removeFiles",

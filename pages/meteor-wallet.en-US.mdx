@@ -16,41 +16,6 @@ Meteor also provides system calls for developers to build data dapps upon variou
   className="mx-auto my-2.5"
 />
 
-## 3 ways to sign in
-
-Meteor wallet enables 3 methods to sign in with your wallet address. They are `Sign-In with Extension`, `Sign-In with Snap`, and `Sign-In with Web`.
-
-### Browser extension
-
-Meteor lives as a browser extension like other crypto wallets. This is the most secure way to sign in with your wallet, for all keys, signatures, and credentials are encrypted and stored locally in your browser.
-
-<img
-  src="/images/introduction/wallets.png"
-  width="75%"
-  className="mx-auto my-2.5"
-/>
-
-### MetaMask snap
-
-Meteor also runs in your MetaMask as a snap. After installation, you can directly access your data wallet via MetaMask.
-
-<img
-  src="/images/introduction/snap.png"
-  width="75%"
-  className="mx-auto my-2.5"
-/>
-
-### Web
-
-Web auth is the most seemless & smooth way to sign in. When signing in, an isolated iframe generates a keypair with 128 bits of entropy chosen at random, and the private key is never persisted anywhere so only the user can access it.
-(This featured is powered by [privy](https://www.privy.io/)).
-
-<img
-  src="/images/introduction/web.png"
-  width="75%"
-  className="mx-auto my-2.5"
-/>
-
 ## Secure resources
 
 We build Meteor wallet with the latest Ethereum Improvement Proposals, including Sign-in-with-Ethereum (SIWE, EIP4361) and Object Capability (ReCaps, EIP-5573). It implements safe, fine-grained resource control.

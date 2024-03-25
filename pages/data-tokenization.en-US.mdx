@@ -1,90 +1,206 @@
 import { Callout } from 'nextra-theme-docs';
 
-# Meteor Cloud
+# Data Tokenization
 
-Meteor Cloud is a decentralized, user-centric storage fully controlled by wallet.
-It is an encrypted personal cloud to store your internet footprints - creations, interests, contribution, social interactions, and more.
-It visualizes your data as files and monetize them as on-chain assets.
+Developers can arbitrarily customize the data monetization layer business based on the [DataAssetBase](https://github.com/pyra-marketplace/assets-sdk/blob/main/src/data-asset/DataAssetBase.ts) base class.
 
-## Self-Sovereignty
+## DataAssetBase
 
-Meteor Cloud is a personal cloud drive where you truly own your data.
-Traditional cloud storage is centralised, with user data stored and calculated on someone else's servers.
-Meteor Cloud is built upon decentralized data networks, where the user has the highest sovereignty over the data in the cloud drive. This sovereignty is reflected in the following aspects:
+This is the basic type of DataAssetBase:
 
-1. The user decides who can access which data in the cloud drive
-2. The user can freely create, delete and update their own data, and even customize the functions they want through our SDK
-3. The user can profit from it instead of big companies profiting from it.
+```javascript
+import { Attached, DataAsset, Connector, EncryptionProvider, MonetizationProvider } from "@meteor-web3/connector";
+import { BigNumberish, BytesLike, Signer } from "ethers";
+import { ChainId } from "../types";
+import { GeneralAccessConditions, SourceAssetConditionInput, SourceAssetConditions, LinkedAssetConditions, LinkedAssetConditionInput, ActParams, PublishParams, AddActionsParams } from "./types";
+export declare class DataAssetBase {
+    fileOrFolderId?: string;
+    assetContract?: string;
+    chainId?: ChainId;
+    assetId?: string;
+    generalAccessConditions?: GeneralAccessConditions;
+    sourceAssetConditions?: SourceAssetConditions;
+    linkedAssetConditions?: LinkedAssetConditions;
+    monetizationProvider?: MonetizationProvider;
+    encryptionProvider?: EncryptionProvider;
+    connector: Connector;
+    signer?: Signer;
+    constructor({ chainId, connector, fileOrFolderId, assetContract, assetId }: {
+        chainId?: ChainId;
+        connector: Connector;
+        fileOrFolderId?: string;
+        assetContract?: string;
+        assetId?: string;
+    });
+    protected createAssetHandler(publishParams: PublishParams, withSig?: boolean): Promise<string>;
+    protected _act(actParams: ActParams, withSig?: boolean): Promise<BytesLike[]>;
+    protected _addActions(addActionsParams: AddActionsParams, withSig?: boolean): Promise<void>;
+    protected _checkERC20BalanceAndAllowance(currency: string, amount: BigNumberish, spender: string): Promise<void>;
+    private _buildPublishSignature;
+    private _buildActSignature;
+    private _buildAddActionsSignature;
+    protected addGeneralCondition(acl: GeneralAccessConditions): void;
+    protected addSourceCondition({ acl, timestamp }: {
+        acl: Omit<SourceAssetConditionInput, "functionParams">;
+        timestamp?: number;
+    }): void;
+    protected addLinkCondition({ acl, linkedAsset, attached }: {
+        acl: Omit<LinkedAssetConditionInput, "contractAddress" | "functionParams" | "chain">;
+        linkedAsset?: DataAsset;
+        attached?: Attached;
+    }): Promise<void>;
+    protected applyFileConditions(fileId?: string): Promise<{
+        fileContent: {
+            file: Omit<import("@meteor-web3/connector").MirrorFile, "content" | "external">;
+            content?: import("@meteor-web3/connector").FileContent | undefined;
+        };
+    }>;
+    protected applyFolderConditions(folderId?: string): Promise<import("@meteor-web3/connector").StructuredFolder>;
+    getAssetOwner(assetId: BytesLike): Promise<string>;
+}
+```
 
-The product form of Meteor Cloud is a Web Native File System(WNFS). It's an encrypted file system to save your
-digital footprints - creations, interests, contribution, social interactions, and more.
+### createAssetHandler
 
-<img
-  src="/images/introduction/finder.png"
-  width="80%"
-  className="mx-auto my-2.5"
-/>
+Create an asset with data as the parameters required by the base class contract itself. The action array can be passed to the action contract deployed by the developer, and the actionInitData can be passed to the contract specific method parameters or an empty array. After successful execution, store the assetId in the class.
 
-## Hyper storage over applications
+### addGeneralCondition
 
-Meteor Cloud is more than storage, it is also an open platform for application development.
-By providing SDKs to developers, we share the decentralized, secure, private, user sovereign storage capabilities of Meteor Cloud with various decentralized applications.
-For example, a social app can store user profiles, social relationships, social content, etc. in Meteor Cloud. While a note-taking tool can choose to save articles to Meteor Cloud.
-With our SDK, everyone can build user-centric data applications on Meteor Cloud.
+Add basic access control conditions, such as wallet address, balance, and whether NFTs are held, generally without involving custom contract conditions. Will add an object to the generalAccessionConditions array.
 
-For users, all the data generated from interacting with different applications will be aggregated in their own encrypted data space,
-no longer scattered across centralized companies' servers like isolated data islands as in the Web2 internet.
-Meteor Cloud stores all of a user's data in one place, helping users reclaim ownership and value of their online data.
-At the same time, as a common data layer connecting thousands of applications, it provides interoperability between application data, under the premise of system security guarantees and user informed consent authorization.
+### addSourceCondition
 
-Just like _Google Drive_ powers _Google Meet_, _Google Docs_ and other Google suite apps, where you can conveniently save recorded videos from Meet or documents from Docs to Drive,
-Meteor Cloud will also provide users with a seamless experience of effortlessly commanding their data.
-The difference is _Google Drive_ is closed and centralized, while Meteor Cloud will be open and decentralized.
+Adding access control conditions for custom contracts. Requires meeting certain conditions of the asset itself. Will add an object to the sourceAssetConditions array.
 
-<img
-  src="/images/introduction/hyper-storage.png"
-  width="70%"
-  className="mx-auto my-2.5"
-/>
+### addLinkCondition
 
-## File sharing & monetization
+Adding access control conditions for custom contracts. Requires meeting certain conditions that are not specific to the asset itself, but rather those of other assets. Will add an object to the linkedAssetConditions array.
 
-Meteor Cloud provides programmable file sharing and access control.
-Users can customize file accesses, such as setting whitelists or issuing NFT access tokens.
-Meanwhile, developers can freely program access conditions and rules.
+### applyFileConditions
 
-At the same time, the native data monetization mechanism allows users to sell access to their data in the form of individual files (Data Token) or collections of files (Data Union).
-Developers can also build data economies on top of this, such as Web3 version of OnlyFans, Substack, data exchange marketplace, etc.
+Similar to createTokenFile, but only for the existing private file instead of creating a new one.
 
-## Why build Meteor Cloud?
+### applyFolderConditions
 
-If we look back at the history of **Data**, we can divide it into three stages:
+In order to successfully unlock, you need to call a contract function to meet the access control conditions.
 
-### Stage 1: The invention of personal computer
+## Demonstration
 
-During this time, we interacted with the software on our personal computers,
-and the data generated was stored on our hard disks. At that stage,
-we had actual control over our own data(no one else can steal data from our hard drive).
-However, the challenge was that it wasn't easy for others to access it.
-There was no effective means for sharing and facilitating data flow.
+[DataToken](https://github.com/pyra-marketplace/assets-sdk/blob/main/src/data-token/DataToken.ts) is a demonstration sdk based on DataAssetBase base class.
 
-### Stage 2: The emergence of the Internet
+This is the basic type of DataToken:
 
-Subsequently, the advent of the internet completely transformed the landscape.
-Suddenly, data had the ability to flow seamlessly between various devices,
-granting us access to a plethora of captivating online resources.
-However, this marked the beginning of a shift where we gradually relinquished control over our own data due to the centralized nature of today's internet infrastructure.
-Presently, computing and storage predominantly occur in a centralized manner.
-Consequently, in this stage, we have willingly exchanged our data sovereignty for the unparalleled convenience offered by the internet.
+```javascript
+import { BigNumber, BigNumberish } from "ethers";
+import { Connector, FileContent } from "@meteor-web3/connector";
+import { DataAssetBase } from "../data-asset/DataAssetBase";
+import { ChainId } from "../types";
+export declare class DataToken extends DataAssetBase {
+    constructor({ chainId, connector, fileId, assetId }: {
+        chainId?: ChainId;
+        connector: Connector;
+        fileId?: string;
+        assetId?: string;
+    });
+    publish({ resourceId, actionsConfig, withSig }: {
+        resourceId: string;
+        actionsConfig?: {
+            collectAction?: {
+                currency: string;
+                amount: BigNumberish;
+                totalSupply?: BigNumberish;
+            };
+        };
+        withSig?: boolean;
+    }): Promise<string>;
+    applyConditionsToFile(timestamp?: number): Promise<{
+        fileContent: {
+            file: Omit<import("@meteor-web3/connector").MirrorFile, "content" | "external">;
+            content?: FileContent | undefined;
+        };
+    }>;
+    createTokenFile({ modelId, fileName, fileContent, actionsConfig, timestamp, withSig }: {
+        modelId: string;
+        fileName?: string;
+        fileContent: FileContent;
+        actionsConfig: {
+            collectAction?: {
+                currency: string;
+                amount: BigNumberish;
+                totalSupply?: BigNumberish;
+            };
+        };
+        timestamp?: number;
+        withSig?: boolean;
+    }): Promise<{
+        fileContent: {
+            file: Omit<import("@meteor-web3/connector").MirrorFile, "content" | "external">;
+            content?: FileContent | undefined;
+        };
+    }>;
+    monetizeFile({ actionsConfig, withSig }: {
+        actionsConfig: {
+            collectAction?: {
+                currency: string;
+                amount: BigNumberish;
+                totalSupply?: BigNumberish;
+            };
+        };
+        withSig?: boolean;
+    }): Promise<{
+        fileContent: {
+            file: Omit<import("@meteor-web3/connector").MirrorFile, "content" | "external">;
+            content?: FileContent | undefined;
+        };
+    }>;
+    getTokenAsset(): Promise<import("./abi/typechain/DataToken").IDataToken.TokenAssetStruct>;
+    isCollected(account: string): Promise<boolean>;
+    addActions({ collectAction, withSig }: {
+        collectAction?: {
+            currency: string;
+            amount: BigNumberish;
+            totalSupply?: BigNumberish;
+        };
+        withSig?: boolean;
+    }): Promise<void>;
+    collect(withSig?: boolean): Promise<BigNumber>;
+    loadCreatedTokenFiles(creator: string): Promise<Record<string, {
+        appId: string;
+        modelId: string;
+        pkh: string;
+        fileContent: {
+            file?: Omit<import("@meteor-web3/connector").MirrorFile, "content" | "external"> | undefined;
+            content?: FileContent | undefined;
+        };
+    }>>;
+    loadCollectedTokenFiles(collector: string): Promise<Record<string, {
+        appId: string;
+        modelId: string;
+        pkh: string;
+        fileContent: {
+            file?: Omit<import("@meteor-web3/connector").MirrorFile, "content" | "external"> | undefined;
+            content?: FileContent | undefined;
+        };
+    }>>;
+}
+```
 
-### Stage 3: The rise of Web3 era
+### publish
 
-Now, let's turn our attention to web3, the internet where data is computed and stored in a decentralized manner.
-The forthcoming generation of personal computers aims to combine the convenience of cloud computing with the security and privacy of a local PC.
+Used to create a DataToken and generate assetId. Internally, createAssetHandler will be called.
 
-In summary, we designed identity computer, the next generation of PC
-– decentralized, cloud-based, and self-controlled.
-Essentially, our system is designed by replacing traditional PC hardware components such as the CPU,
-memory, and hard disk with decentralized infrastructures, including blockchains,
-decentralized storage and databases.
-This change empowers us to restore complete control over data to the users.
+### applyConditionsToFile
+
+Imposes access control conditions on a file that can only be decrypted by the creator and collector. Internally, addGeneralCondition, addSourceCondition and applyFileConditions will be called.
+
+### createTokenFile
+
+Creates a private file first, then concatenates methods publish and applyConditionsToFile, whichs makes the file become a payable file.
+
+### monetizeFile
+
+Similar to createTokenFile, but only for the existing private file instead of creating a new one.
+
+### collect
+
+In order to successfully unlock, you need to call a contract function to meet the access control conditions.
