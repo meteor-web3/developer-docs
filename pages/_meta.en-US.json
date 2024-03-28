@@ -13,6 +13,9 @@
   "quickstart": {
     "title": "Quickstart"
   },
+  "using-sdk": {
+    "title": "Using SDK"
+  },
   "-- Products": {
     "type": "separator",
     "title": "Products"

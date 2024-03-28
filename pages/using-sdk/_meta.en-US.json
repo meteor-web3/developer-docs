@@ -1,0 +1,8 @@
+{
+  "auth-kit": {
+    "title": "Auth Kit",
+    "icon": "🔨",
+    "description": "A frontend framework to help create meteor apps and get started",
+    "href": "/using-sdk/auth-kit"
+  }
+}
