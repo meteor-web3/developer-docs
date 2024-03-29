@@ -1,1 +1,83 @@
 import { Callout } from 'nextra-theme-docs';
+
+## Auth Kit
+
+### 3 ways to sign in
+
+[Meteor Connector](https://github.com/meteor-web3/meteor-sdk/tree/main/packages/connector/src/provider) and [Meteor Auth Component](https://github.com/meteor-web3/meteor-components/blob/main/src/components/Auth/index.tsx) enables 3 methods to sign in with your wallet. `MeteorWalletProvider`, `MeteorSnapProvider`, and `MeteorWebProvider`.
+
+#### Extension Wallet
+
+Meteor Wallet is a browser extension like other crypto wallets. This is the most secure way to run the OS in your browser, and store file encryption keys, app session keys, resource capabilities locally.
+
+<img
+  src="/images/introduction/wallets.png"
+  width="75%"
+  className="mx-auto my-2.5"
+/>
+
+#### MetaMask snap
+
+Meteor Snap integrates DataverseOS into Metamask, so users can use their existing wallet to log in personal cloud. After installation, your Metamask will have data wallet functions.
+
+<img
+  src="/images/introduction/snap.png"
+  width="75%"
+  className="mx-auto my-2.5"
+/>
+
+#### Web
+
+Meteor Web provides the best user experience. Similar to MPC wallets (e.g. [privy](https://www.privy.io/)), web auth SDK will open an isolated iframe that serves as the interface between app websites and data operating system. Users are not required to download extensions or snaps; simply use their existing asset wallets to sign in smoothly. The session keypair is generated with 128 bits of entropy chosen at random; its private key is never persisted so only users can access in memory.
+
+<img
+  src="/images/introduction/web.png"
+  width="75%"
+  className="mx-auto my-2.5"
+/>
+
+### Using Meteor Auth Component
+
+Import the MeteorContextProvider into your project, and wrap your app with it.
+
+Concretely, the MeteorContextProvider must wrap any component or page that will use the Meteor SDK or Meteor Auth Component. It is generally recommended to render it as close to the root of your application as possible.
+
+<Callout type="info">
+  If you're new to React and using contexts, check out
+  [these](https://react.dev/learn/thinking-in-react)
+  [resources](https://react.dev/learn/passing-data-deeply-with-context)!
+</Callout>
+
+For example, in a NextJS or Create React App project, you may wrap your components like so:
+
+```javascript
+/** Import Meteor Hooks */
+import { MeteorContextProvider } from '@meteor-web3/hooks';
+
+export default function Providers({children}: {children: React.ReactNode}) {
+  return (
+    <MeteorContextProvider autoInit={false}>
+      {children}
+    </MeteorContextProvider>;
+  )
+}
+```
+
+Once you've wrapped your app with the MeteorContextProvider, you can now use the Meteor SDK throughout your components and pages via the meteor hooks!
+If you want to use the Auth Component, you need to use useContext to take out the MeteorContext and pass it to the Auth component in order for the Auth Component and hook to have the same data and status.
+
+```javascript
+/** Import Meteor Auth Component */
+import { useContext } from 'react';
+import { Auth } from '@meteor-web3/components';
+import { MeteorContext } from '@meteor-web3/hooks';
+
+const meteorContext = useContext(MeteorContext);
+
+const connectRes = await Auth.openModal(
+  {
+    appId: process.env.METEOR_APP_ID,
+  },
+  meteorContext,
+);
+```
