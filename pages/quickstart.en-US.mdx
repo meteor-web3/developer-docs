@@ -273,68 +273,68 @@ and the return value is in the same format as `createIndexFile`.
 
 ## Step 7: Monetize a file
 
+The native method is as follows.
+
 ```javascript
 import { Currency } from "@meteor-web3/connector";
 
 const res = await connector.runOS({
   method: SYSTEM_CALL.monetizeFile,
   params: {
-    ...(indexFileId ? { indexFileId } : { streamId }),
-    datatokenVars: {
-      profileId,
-      collectLimit: 100,
-      amount: 0.0001,
-      currency: Currency.WMATIC,
-    },
-    decryptionConditions: [
-      ...
-    ]
+    fileId,
+    monetizationProvider: { ... },
+    encryptionProvider: { ... }
   },
 });
 ```
 
-To put it simply, data monetization is to deploy a collection of NFTs on the blockchain
-and use the NFT as access credentials to the data. We deployed multi version of smart contracts for this process of converting off-chain data to on-chain NFTs.
-By default, leave the `profileId` as `null`, and the transaction will go through meteor default profileless smart contracts.
-We're also compatible with [Lens Protocol](https://lens.xyz/) in case you want to use their smart contracts and let your lens handle own your data. Pass in your lens profile id to `profileId` to use Lens Protocol here.
-
-`decryptionConditions` specifies a set of conditions to limit access to the data.
-For example
+It is recommended to use monetizeFile method under the [DataToken](https://github.com/pyra-marketplace/assets-sdk/blob/main/src/data-token/DataToken.ts) class from [assets-sdk](https://github.com/pyra-marketplace/assets-sdk) directly.
 
 ```javascript
-[
-  {
-    conditionType: 'evmBasic',
-    contractAddress: '',
-    standardContractType: '',
-    chain: 'filecoin',
-    method: '',
-    parameters: [':userAddress'],
-    returnValueTest: {
-      comparator: '=',
-      value: '0x3c6216caE32FF6691C55cb691766220Fd3f55555',
+import {
+  DataToken,
+  DEPLOYED_ADDRESSES,
+} from '@pyra-marketplace/assets-sdk/data-token';
+
+const dataToken = new DataToken({
+  chainId,
+  fileId,
+  connector,
+});
+
+const res = await dataToken.monetizeFile({
+  actionsConfig: {
+    collectAction: {
+      currency: DEPLOYED_ADDRESSES[chainId].WMATIC,
+      amount: 1000,
     },
   },
-];
+});
 ```
-
-This condition specifies that the data can only be accessed by the
-wallet address `0x3c6216caE32FF6691C55cb691766220Fd3f55555` on filecoin chain.
 
 ## Step 8: Purchase a file
 
 ```javascript
-await connector.runOS({
-  method: SYSTEM_CALL.collectFile,
-  params: indexFileId,
+import { DataAssetParser } from '@pyra-marketplace/assets-sdk/data-asset';
+import { DataToken } from '@pyra-marketplace/assets-sdk/data-token';
+
+const dataAssetParser = new DataAssetParser(connector);
+const dataAsset = await dataAssetParser.parse(indexFileId);
+const dataToken = new DataToken({
+  chainId: dataAsset.chainId,
+  fileId: dataAsset.fileOrFolderId,
+  assetId: dataAsset.assetId,
+  connector,
 });
+
+const collectionId = await dataToken.collect();
 ```
 
 This will send a transaction to mint an NFT to the user's wallet address.
 The NFT is the access credential to the data.
 
 <Callout>
-  `monetizeFile` and `collectFile` functions are on Mumbai testnet for now.
+  `monetizeFile` and `collect` functions are on Mumbai testnet for now.
 </Callout>
 
 After purchase completed, you can load the file content using `unlockFile` function.

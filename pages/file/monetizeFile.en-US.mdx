@@ -12,13 +12,9 @@ Use this function to empower users with the ability to earn from their data.
 await connector.runOS({
   method: SYSTEM_CALL.monetizeFile,
   params: {
-    ...(indexFileId ? { indexFileId } : { streamId }),
-    datatokenVars: {
-      profileId,
-      collectLimit: 100,
-      amount: 0.0001,
-      currency: Currency.WMATIC,
-    },
+    fileId,
+    monetizationProvider: { ... },
+    encryptionProvider: { ... }
   },
 });
 ```
